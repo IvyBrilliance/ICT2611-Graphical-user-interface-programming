@@ -38,15 +38,22 @@ module.exports = (app) => {
     app.get('/users',  async(req, res, next) => {
     	console.log("accessed");
         try {
-          	User.find()
-          		.then(function(err, doc){
-          			res.send(doc);
-          		})
+          	User.find({}, function(err, docs) {
+			    if (!err) { 
+			        console.log(docs);
+			        res.send(docs);
+			        process.exit();
+			    }
+			    else {
+			        throw err;
+			    }
+			});
 
-            if (!users) throw Error('No users exist');
-            res.json(users);
+            // if (!users) throw Error('No users exist');
+            // res.json(users);
         } catch (e) {
             res.status(400).json({ msg: e.message });
+            console.log(e);
         }
     });
 
