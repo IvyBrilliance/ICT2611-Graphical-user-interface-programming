@@ -24,9 +24,14 @@ const UserSchema = new Schema({
   }
 });
 
-const User = mongoose.model('user', UserSchema);
+const User = mongoose.model('User', UserSchema);
 
 // export default User;
-module.exports = {
+module.exports ={
   User
 }
+/*{
+name: "dan",
+email: "daniel@gmail.com",
+password: "dan"
+}*/
