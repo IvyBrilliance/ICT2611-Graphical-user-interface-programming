@@ -6,9 +6,6 @@ I placed it here temporarily to solve the issue for now,....*/
 
 var mongoose = require('mongoose');
 let Schema = mongoose.Schema;
-// let model = mongoose.model;
-
-// Create Schema
 const UserSchema = new Schema({
   name: {
     type: String,
@@ -30,11 +27,10 @@ const UserSchema = new Schema({
 });
 const User = mongoose.model('users', UserSchema);
 
-
-
 // const User = require('../models/User');
 module.exports = (app) => {
 
+	// find one user
     app.get('/users',  async(req, res, next) => {
     	console.log("accessed");
         try {
@@ -49,14 +45,13 @@ module.exports = (app) => {
 			    }
 			});
 
-            // if (!users) throw Error('No users exist');
-            // res.json(users);
         } catch (e) {
             res.status(400).json({ msg: e.message });
             console.log(e);
         }
     });
 
+    // create a user
     app.post('/createuser', async (req, res, next) => {
     	console.log("accessed create user route");
         try {
@@ -81,16 +76,10 @@ module.exports = (app) => {
         }
     });
 
-    // app.get('/posts', async (req, res) => {
-    // 	console.log("accessed");
-    //     try {
-    //         const users = await User.find();
-    //         if (!users) throw Error('No posts exist');
-    //             res.json(users);
-    //         } catch (e) {
-    //             res.status(400).json({ msg: e.message });
-    //     }
-    // });
+    // find user by id
 
+    // find all posts
+
+    // find specific post{by params...}
 };
 
