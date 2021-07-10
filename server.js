@@ -4,22 +4,6 @@ const PORT = 5000;
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 
-
-// // create a schema:
-// var Schema = mongoose.Schema;
-
-// var userSchema = new Schema({
-// 	username: String,
-// 	password: String,
-// 	date_created: Date,
-// 	isValidated: Boolean
-// });
-
-// // compile model from the schema
-// var userSchema = mongoose.model('users2', userSchema);
-
-// app.use(express.bodyParser());
-
 app.use(bodyParser.json())
 
 mongoose.set('useNewUrlParser', true);
