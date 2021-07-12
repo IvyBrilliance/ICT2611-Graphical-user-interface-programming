@@ -2,6 +2,10 @@
 
 /* at some point i need to return this conde back into the models User.js file... 
 I placed it here temporarily to solve the issue for now,....*/
+const url = require('url');
+const querystring = require('querystring');
+/*----------------------------------------------------------------*/
+
 
 
 var mongoose = require('mongoose');
@@ -39,9 +43,16 @@ const PostSchema = new Schema({
     type: String,
     required: true
   },
+  slug: {
+    type: String
+  },
   img: {
     data: Buffer,
     contentType: String
+  },
+  publish_date: {
+    type: Date,
+    default: Date.now
   }
 });
 
@@ -99,7 +110,26 @@ module.exports = (app) => {
         }
     });
 
-    // find user by id
+
+    // find one post
+    /*I fist need to create a slug, when someone creates a post, i need to use their title of blog to generate the lug, and 
+    I will then use the slug here as a req.param.slug */
+    app.get(`/post/:id`, async(req, res, next)=>{
+        // console.log(req.query.id); //this is the query string
+        console.log(req.params.id);
+
+        // Post.findOne({'id': req.params.id }, function (err, docs) {
+        //     if (err){
+        //         console.log(err);
+        //     }
+        //     else{
+        //         console.log("Result : ", docs);
+        //     }
+        // });
+
+        res.send('still need to work on this one');
+    });
+
 
     // find all posts
     app.get('/posts',  async(req, res, next) => {
