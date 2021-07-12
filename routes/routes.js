@@ -25,7 +25,30 @@ const UserSchema = new Schema({
     default: Date.now
   }
 });
+
+const PostSchema = new Schema({
+  title: {
+    type: String,
+    required: true
+  },
+  body: {
+    type: String,
+    required: true
+  },
+  writer: {
+    type: String,
+    required: true
+  },
+  img: {
+    data: Buffer,
+    contentType: String
+  }
+});
+
+const Post = mongoose.model('posts', PostSchema);
 const User = mongoose.model('users', UserSchema);
+
+
 
 // const User = require('../models/User');
 module.exports = (app) => {
