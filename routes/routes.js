@@ -102,6 +102,24 @@ module.exports = (app) => {
     // find user by id
 
     // find all posts
+    app.get('/posts',  async(req, res, next) => {
+        try {
+            Post.find({}, function(err, docs) {
+                if (!err) { 
+                    console.log(docs);
+                    res.send(docs);
+                    process.exit();
+                }
+                else {
+                    throw err;
+                }
+            });
+
+        } catch (e) {
+            res.status(400).json({ msg: e.message });
+            console.log(e);
+        }
+    });
 
     // find specific post{by params...}
 };
