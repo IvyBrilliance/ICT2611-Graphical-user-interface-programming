@@ -31,12 +31,16 @@ export const OurAlertSimple = (props) => {
 }
 
 const Create = () => {
-	const { makepost, handleSubmit, watch, errors } = useForm();
+	const { register, handleSubmit } = useForm();
 	const onSubmit = (data) => console.log(data);
 
 	
-	const history = useHistory();
-	const [loading, setLoading] = useState(false);
+	// const history = useHistory();
+	// const [loading, setLoading] = useState(false);
+
+	// const register = ()=>{
+	// 	return 0;
+	// }
 
 
 	// const handleSubmit = ()=>{
@@ -73,49 +77,43 @@ const Create = () => {
 
 	return (
 	    <Container className=''>
-			<form>
+			<form onSubmit={handleSubmit(onSubmit)}>
 				<FormGroup>
 					<Label for="">Title</Label>
 					<input
 						type="text"
 						className="form-control"
-						name="lastname"
-						ref={makepost({
-							required: "Lastname is required.",
-							minLength: {
-								value: 8,
-								message:
-									"Lastname cannot be shorter than 2 charectors",
-							},
-							maxLength:{
-								value: 40,
-								message: "Lastname cannot be longer than 40 charectors"
-							}
-						})}
+						name="title"
+						{...register('title')}
+						// {...register({
+						// 	required: "Title is required.",
+						// 	minLength: {
+						// 		value: 8,
+						// 		message:
+						// 			"Title cannot be shorter than 2 charectors",
+						// 	},
+						// 	maxLength:{
+						// 		value: 40,
+						// 		message: "Title cannot be longer than 40 charectors"
+						// 	}
+						// })}
 					/>
 				</FormGroup>
 
 				<FormGroup>
-			        <Label for="">Text Area</Label>
-			        <input
+			        <Label for="">Body</Label>
+			        <textarea
 						type="textarea"
 						className="form-control"
-						name="lastname"
-						ref={makepost({
-							required: "body is required.",
-							minLength: {
-								value: 8,
-								message:
-									"body cannot be shorter than 2 charectors",
-							}
-						})}
-					/>
+						name="body"
+						{...register('body')}
+					></textarea>
 		      </FormGroup>
 
-		       <input id="submitButton" className="btn" type="submit" />
+		       <input  id="submitButton" className="btn btn-primary" type="submit" />
 			</form>
 
-			<Row md="6" id="ErrorColoumn">
+			{/*<Row md="6" id="ErrorColoumn">
 				<div>{errors.firstname && (
 					<OurAlertSimple
 						type="danger"
@@ -130,7 +128,7 @@ const Create = () => {
 					></OurAlertSimple>
 				)}
 				</div>
-			</Row>
+			</Row>*/}
 
 		</Container>
 	  )
