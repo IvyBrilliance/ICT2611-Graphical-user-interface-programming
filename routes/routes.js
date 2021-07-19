@@ -4,6 +4,8 @@
 I placed it here temporarily to solve the issue for now,....*/
 const url = require('url');
 const querystring = require('querystring');
+var bodyParser = require('body-parser')
+var jsonParser = bodyParser.json()
 /*----------------------------------------------------------------*/
 
 
@@ -152,11 +154,12 @@ module.exports = (app) => {
     });
 
     // create a post:
-    app.post('/post', async(req, res, next) => {
+    app.post('/post', jsonParser, (req, res, next) => {
 
 		// get the data first:
-		// let title = req.body.title;
-		// let body = req.body.body;
+		let title = req.body.title;
+		let body = req.body.body;
+		console.log(title);
 		var data = new Post({ title: 'sample title' ,body: 'sample body', writer: 'dan', slug: 'pst1' });
 
       	try {
@@ -164,7 +167,7 @@ module.exports = (app) => {
                  
         		if (err) return console.error(err);
         		console.log(post.title + " saved to posts collection.");
-        		res.send("success");
+        		res.json("success");
     		});
 
         } catch (e) {

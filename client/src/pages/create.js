@@ -2,12 +2,13 @@ import React, {useState, useEffect} from 'react'
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import {Container, Col, Row} from "reactstrap";
 import { Button, Form, FormGroup, Label, Input, FormText,Alert } from 'reactstrap';
-
 import { useHistory } from 'react-router-dom'
 import axios from 'axios'
+import { useForm } from "react-hook-form";
+
+
 // import OurAlert from '../components/utilities/alert'
 
-import { useForm } from "react-hook-form";
 
 const OurAlert = (props) => {
 	const [visible, setVisible] = useState(true);
@@ -35,44 +36,20 @@ const Create = () => {
 	const onSubmit = (data) => {
 		// write submit logic here:
 		console.log(data);
+		
+		axios.post('http://localhost:5000/post', {
+		    title: 'Fred',
+		    body: 'Flintstone'
+		  })
+		  .then(function (response) {
+		    console.log(response);
+		  })
+		  .catch(function (error) {
+		    console.log(error);
+		});
+  	
 	}
 
-
-	// const history = useHistory();
-	// const [loading, setLoading] = useState(false);
-
-
-	// const handleSubmit = ()=>{
-
-	// 	setLoading(true)
-	//     console.log('state username is : ' + username + ' pass is ' + password)
-	//     const url = 'https://serve.macbase.co.za/adminlogin'
-
-	//     axios.post(url, {
-	//         username: username,
-	//         password: password,
-	//       })
-	//       .then(function (response) {
-	//         setLoginError(true)
-	//         setLoading(false)
-	//         info = response.data
-	//         // setAdminsData(info);
-	//         if (info.success == 'true') {
-	//           setLoginError(false)
-	//           // do something
-	//           setAdminsData(info.result)
-	//           setLocalStorage(username,password);
-	//         } else {
-	//           setLoginError(true)
-	//         }
-
-	//         console.log(info)
-	//       })
-	//       .catch(function (error) {
-	//         setLoading(false)
-	//         console.log(error)
-	//       })
- //  	}
 
 	return (
 	    <Container className=''>

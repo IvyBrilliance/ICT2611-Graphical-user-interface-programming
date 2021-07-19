@@ -1,26 +1,43 @@
 const express = require("express");
-const app = express();
-const PORT = 5000;
+
+
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
+const cors = require('cors');
+const PORT = 5000;
+const app = express();
 
-// app.use(bodyParser.json())
-
-app.use(bodyParser.urlencoded({ extended: false })); // Parses urlencoded bodies
-app.use(bodyParser.json()); // Send JSON responses
 
 mongoose.set('useNewUrlParser', true);
 mongoose.set('useFindAndModify', false);
 mongoose.set('useCreateIndex', true);
-// DB Config
 const db = require('./config/keys').mongoURI;
-
-// Connect to Mongo
 mongoose
   .connect(db, {useNewUrlParser: true, useUnifiedTopology: true})
   .then(() => console.log('MongoDB Connected...'))
   .catch(err => console.log(err));
 
+
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: false }))
+ 
+// parse application/json
+app.use(bodyParser.json())
+
+var allowedOrigins = ['http://localhost:3000'];
+app.use(cors({
+  origin: function(origin, callback){    // allow requests with no origin 
+    // (like mobile apps or curl requests)
+    if(!origin) {return callback(null, true)};
+
+    if(allowedOrigins.indexOf(origin) === -1){
+      var msg = 'The CORS policy for this site does not ' +  'allow access from the specified Origin.';
+      // return callback(new Error(msg), false);
+    	return callback(null, true); // allow all of em
+    }    
+    return callback(null, true);
+  }
+}));
 
 
 

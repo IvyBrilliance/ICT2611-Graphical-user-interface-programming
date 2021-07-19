@@ -1,13 +1,14 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
-import {Button} from 'reactstrap';
+import {Container, Button} from 'reactstrap';
 
 
 const Home = () =>{
+	
   return (
-    <div className="">
+    <Container className="">
         <Button color="danger">Danger!</Button>
-    </div>
+    </Container>
   );
 }
 
