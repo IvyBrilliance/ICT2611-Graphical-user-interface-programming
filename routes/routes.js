@@ -151,6 +151,28 @@ module.exports = (app) => {
         }
     });
 
+    // create a post:
+    app.post('/post', async(req, res, next) => {
+
+		// get the data first:
+		// let title = req.body.title;
+		// let body = req.body.body;
+		var data = new Post({ title: 'sample title' ,body: 'sample body', writer: 'dan', slug: 'pst1' });
+
+      	try {
+            data.save(function(err, post) {
+                 
+        		if (err) return console.error(err);
+        		console.log(post.title + " saved to posts collection.");
+        		res.send("success");
+    		});
+
+        } catch (e) {
+            res.status(400).json({ msg: e.message });
+            console.log(e);
+        }
+    })
+
     // find specific post{by params...}
 };
 

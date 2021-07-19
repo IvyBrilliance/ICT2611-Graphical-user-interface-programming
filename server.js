@@ -4,7 +4,10 @@ const PORT = 5000;
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 
-app.use(bodyParser.json())
+// app.use(bodyParser.json())
+
+app.use(bodyParser.urlencoded({ extended: false })); // Parses urlencoded bodies
+app.use(bodyParser.json()); // Send JSON responses
 
 mongoose.set('useNewUrlParser', true);
 mongoose.set('useFindAndModify', false);

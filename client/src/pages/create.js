@@ -32,15 +32,14 @@ export const OurAlertSimple = (props) => {
 
 const Create = () => {
 	const { register, handleSubmit } = useForm();
-	const onSubmit = (data) => console.log(data);
+	const onSubmit = (data) => {
+		// write submit logic here:
+		console.log(data);
+	}
 
-	
+
 	// const history = useHistory();
 	// const [loading, setLoading] = useState(false);
-
-	// const register = ()=>{
-	// 	return 0;
-	// }
 
 
 	// const handleSubmit = ()=>{
@@ -85,18 +84,7 @@ const Create = () => {
 						className="form-control"
 						name="title"
 						{...register('title')}
-						// {...register({
-						// 	required: "Title is required.",
-						// 	minLength: {
-						// 		value: 8,
-						// 		message:
-						// 			"Title cannot be shorter than 2 charectors",
-						// 	},
-						// 	maxLength:{
-						// 		value: 40,
-						// 		message: "Title cannot be longer than 40 charectors"
-						// 	}
-						// })}
+					
 					/>
 				</FormGroup>
 
