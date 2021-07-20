@@ -162,7 +162,7 @@ module.exports = (app) => {
         let writer = "dan"
         let slug = req.body.title; // a function will be created for this;
 
-		var data = new Post({ title: title ,body: body, writer: writer, slug: slug });
+		var data = new Post({ title: title ,body: body, writer: writer, img: 'false for now', slug: slug });
 
       	try {
             data.save(function(err, post) {

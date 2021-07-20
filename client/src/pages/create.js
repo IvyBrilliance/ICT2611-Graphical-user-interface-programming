@@ -36,18 +36,20 @@ const Create = () => {
 	const onSubmit = (data) => {
 		// write submit logic here:
 		console.log(data);
+		const file = data.thumbnail[0];
 		
-		axios.post('http://localhost:5000/post', {
-		    title: data.title,
-		    body: data.body,
-		    writer: 'daniel'
-		  })
-		  .then(function (response) {
-		    console.log(response);
-		  })
-		  .catch(function (error) {
-		    console.log(error);
-		});
+		
+		// axios.post('http://localhost:5000/post', {
+		//     title: data.title,
+		//     body: data.body,
+		//     writer: 'daniel'
+		//   })
+		//   .then(function (response) {
+		//     console.log(response);
+		//   })
+		//   .catch(function (error) {
+		//     console.log(error);
+		// });
   	
 	}
 
@@ -75,6 +77,11 @@ const Create = () => {
 						{...register('body')}
 					></textarea>
 		      </FormGroup>
+
+		      	<FormGroup>
+		      	<Label for="">Thumbnail</Label>
+					<input {...register('thumbnail')} type="file" name="thumbnail" />
+				</FormGroup>
 
 		       <input  id="submitButton" className="btn btn-primary" type="submit" />
 			</form>

@@ -7,6 +7,8 @@ import Post from './pages/post.js';
 import Login from './pages/login.js';
 import Create from './pages/create.js';
 
+import TestUpload from './pages/testupload.js'
+
 const App = () => {
   return (
     <div className='App'>
@@ -19,6 +21,7 @@ const App = () => {
 
           <Route path='/login' exact component={Login} />
           <Route path='/create' exact component={Create} />
+          <Route path='/upload' exact component={TestUpload} />
         </Switch>
 
       </BrowserRouter>
