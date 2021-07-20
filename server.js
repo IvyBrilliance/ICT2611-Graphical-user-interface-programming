@@ -24,7 +24,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // parse application/json
 app.use(bodyParser.json())
 
-var allowedOrigins = ['http://localhost:3000'];
+var allowedOrigins = ['http://localhost:3000', 'http://localhost:3000/posts'];
 app.use(cors({
   origin: function(origin, callback){    // allow requests with no origin 
     // (like mobile apps or curl requests)
