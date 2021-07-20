@@ -38,8 +38,9 @@ const Create = () => {
 		console.log(data);
 		
 		axios.post('http://localhost:5000/post', {
-		    title: 'Fred',
-		    body: 'Flintstone'
+		    title: data.title,
+		    body: data.body,
+		    writer: 'daniel'
 		  })
 		  .then(function (response) {
 		    console.log(response);

@@ -159,8 +159,10 @@ module.exports = (app) => {
 		// get the data first:
 		let title = req.body.title;
 		let body = req.body.body;
-		console.log(title);
-		var data = new Post({ title: 'sample title' ,body: 'sample body', writer: 'dan', slug: 'pst1' });
+        let writer = "dan"
+        let slug = req.body.title; // a function will be created for this;
+
+		var data = new Post({ title: title ,body: body, writer: writer, slug: slug });
 
       	try {
             data.save(function(err, post) {
@@ -175,7 +177,5 @@ module.exports = (app) => {
             console.log(e);
         }
     })
-
-    // find specific post{by params...}
 };
 
