@@ -1,6 +1,6 @@
 import React,{useState, useEffect} from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
-import {Container, ButtonCard,Card, Button, Row, CardImg, CardText, CardBody,
+import {Container, Col, ButtonCard,Card, Button, Row, CardImg, CardText, CardBody,
   CardTitle, CardSubtitle} from 'reactstrap';
 import axios from 'axios';
 
@@ -18,25 +18,36 @@ const Home = () =>{
 		});
 	}, []);
 
+	const CardStyle = {
+
+	}
+
+	const CardImagestyles = {
+		// maxWidth: '100px',
+	}
 	
 
   return (
     <Container className="">
         <Button color="danger">Danger!</Button>
 
-            
-        <Row>
+         <Row>   
         {
         	posts.map(post => 
-        		(<Card key={post._id}>
-		        	<CardImg top width="100%" src="/assets/318x180.svg" alt="Card image cap" />
+
+        		(
+        		<Col md='4'>
+        			<Card style={CardStyle} key={post._id}>
+		        	<CardImg top width='100%'  style={CardImagestyles} src={post.img} alt="Card image cap" />
 			        <CardBody>
 			          <CardTitle tag="h5">{post.title}</CardTitle>
 			          <CardSubtitle tag="h6" className="mb-2 text-muted">date</CardSubtitle>
 			          <CardText>{post.body}</CardText>
 			          <Button>read more</Button>
 			        </CardBody>
-			    </Card>)
+			    </Card>
+			    </Col>
+			    )
 		    )
         }
         </Row>

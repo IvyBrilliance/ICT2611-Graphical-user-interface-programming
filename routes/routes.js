@@ -49,8 +49,8 @@ const PostSchema = new Schema({
     type: String
   },
   img: {
-    data: Buffer,
-    contentType: String
+   type: String,
+    required: true
   },
   publish_date: {
     type: Date,
@@ -140,7 +140,7 @@ module.exports = (app) => {
                 if (!err) { 
                     console.log(docs);
                     res.send(docs);
-                    process.exit();
+                    // process.exit();
                 }
                 else {
                     throw err;
@@ -160,9 +160,10 @@ module.exports = (app) => {
 		let title = req.body.title;
 		let body = req.body.body;
         let writer = "dan"
+        let img = req.body.img;
         let slug = req.body.title; // a function will be created for this;
 
-		var data = new Post({ title: title ,body: body, writer: writer, img: 'false for now', slug: slug });
+		var data = new Post({ title: title ,body: body, writer: writer, img: img, slug: slug });
 
       	try {
             data.save(function(err, post) {
