@@ -117,10 +117,8 @@ module.exports = (app) => {
 
 
     // find one post
-    /*I fist need to create a slug, when someone creates a post, i need to use their title of blog to generate the lug, and 
-    I will then use the slug here as a req.param.slug */
     app.get(`/post/:slug`, async(req, res, next) => {
-        Post.findOne({'slug': req.params.slug }, 'slug title body', function (err, docs) {
+        Post.findOne({'slug': req.params.slug }, 'slug title body img writer', function (err, docs) {
             if (err){
                 console.log(err);
             }

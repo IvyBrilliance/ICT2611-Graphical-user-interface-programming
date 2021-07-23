@@ -13,15 +13,6 @@ const Post = ({ match }) => {
     const [post, setPost] = useState({});
     const [loading, setLoading] = useState(true);
 
-  // 	useEffect(() => {
-		// const getData = async () => {
-		// // setPost(await GetTeacherModule(parseInt(id)));
-		// // console.log(module);
-		// setLoading(false);
-		// };
-		// getData();
-  //  	}, []);
-
 	useEffect(() => {
 			axios.get(`http://localhost:5000/post/${slug}`)
 			  .then(function (response) {
@@ -36,12 +27,18 @@ const Post = ({ match }) => {
 		}, []);
 
   return (
-    <div className=''>
+    <div>
     	{
     		post.hasOwnProperty("body")?(
-    			<p>{post.body}</p>
+    			<Container>
+    				<h3>{post.title}</h3>
+    				<img style={{maxWidth: '600px'}} src={post.img} className="rounded mx-auto d-block" alt="..."/>
+    				<p>{post.body}</p>
+    			</Container>
     		): (
-    			<p>niks</p>
+    			<Container>
+    				niks
+    			</Container>
     		)
     	}
     </div>
