@@ -6,6 +6,8 @@ const url = require('url');
 const querystring = require('querystring');
 var bodyParser = require('body-parser')
 var jsonParser = bodyParser.json()
+var slug = require('slug');
+var slugify = require('slugify');
 /*----------------------------------------------------------------*/
 
 
@@ -46,7 +48,8 @@ const PostSchema = new Schema({
     required: true
   },
   slug: {
-    type: String
+    type: String,
+     required: true
   },
   img: {
    type: String,
@@ -116,20 +119,16 @@ module.exports = (app) => {
     // find one post
     /*I fist need to create a slug, when someone creates a post, i need to use their title of blog to generate the lug, and 
     I will then use the slug here as a req.param.slug */
-    app.get(`/post/:id`, async(req, res, next)=>{
-        // console.log(req.query.id); //this is the query string
-        console.log(req.params.id);
-
-        // Post.findOne({'id': req.params.id }, function (err, docs) {
-        //     if (err){
-        //         console.log(err);
-        //     }
-        //     else{
-        //         console.log("Result : ", docs);
-        //     }
-        // });
-
-        res.send('still need to work on this one');
+    app.get(`/post/:slug`, async(req, res, next) => {
+        Post.findOne({'slug': req.params.slug }, 'slug title body', function (err, docs) {
+            if (err){
+                console.log(err);
+            }
+            else{
+                console.log("Result : ", docs);
+                res.send(docs);
+            }
+        });
     });
 
 
@@ -156,12 +155,20 @@ module.exports = (app) => {
     // create a post:
     app.post('/post', jsonParser, (req, res, next) => {
 
+
 		// get the data first:
 		let title = req.body.title;
 		let body = req.body.body;
         let writer = "dan"
         let img = req.body.img;
-        let slug = req.body.title; // a function will be created for this;
+        let slug = slugify(req.body.title, {
+            replacement: '-', 
+            remove: undefined, 
+            lower: true,      
+            strict: false,
+            locale: 'vi', 
+            trim: true    
+          })
 
 		var data = new Post({ title: title ,body: body, writer: writer, img: img, slug: slug });
 

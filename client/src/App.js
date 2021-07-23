@@ -18,7 +18,7 @@ const App = () => {
           <Route path='/' exact component={Home} />
           <Route path='/blog' exact component={Blog} />
           <Route path='/post' exact component={Post} />
-
+          <Route path='/post/:slug' exact render={props => <Post {...props} />} />
           <Route path='/login' exact component={Login} />
           <Route path='/create' exact component={Create} />
           <Route path='/upload' exact component={TestUpload} />
