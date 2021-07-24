@@ -5,6 +5,7 @@ import Blog from './pages/blog.js';
 import Post from './pages/post.js';
 
 import Login from './pages/login.js';
+import Signup from './pages/signup.js';
 import Create from './pages/create.js';
 
 import TestUpload from './pages/testupload.js'
@@ -20,6 +21,7 @@ const App = () => {
           <Route path='/post' exact component={Post} />
           <Route path='/post/:slug' exact render={props => <Post {...props} />} />
           <Route path='/login' exact component={Login} />
+           <Route path='/signup' exact component={Signup} />
           <Route path='/create' exact component={Create} />
           <Route path='/upload' exact component={TestUpload} />
         </Switch>

@@ -15,7 +15,11 @@ var slugify = require('slugify');
 var mongoose = require('mongoose');
 let Schema = mongoose.Schema;
 const UserSchema = new Schema({
-  name: {
+  firstname: {
+    type: String,
+    required: true
+  },
+  lastname: {
     type: String,
     required: true
   },
@@ -90,24 +94,23 @@ module.exports = (app) => {
         }
     });
 
-    // create a user
-    app.post('/createuser', async (req, res, next) => {
+    // login user:
+    app.post('/login', async (req, res, next)=>{
+        res.send('ok');
+    });
+
+    // create a user:
+    app.post('/signup', jsonParser, async (req, res, next) => {
     	console.log("accessed create user route");
         try {
-          	// var item = {
-          	// 	name: req.body.name,
-          	// 	email: req.body.email,
-          	// 	password: req.body.password,
-          	// 	register_date: Date.now()
-          	// }
-          	let testItem = {
-          		name: "daniel",
-          		email: "danielromeo99@gmail.com",
-          		password: "password",
-          		register_date: Date.now()	
+          	var item = {
+          		firstname: req.body.firstname,
+                lastname: req.body.lastname,
+          		email: req.body.email,
+          		password: req.body.password
           	}
 
-          	let data = new User(testItem);
+          	let data = new User(item);
           	data.save();
           	res.send("successfully added a new user to the database");
         } catch (e) {
