@@ -38,9 +38,6 @@ app.use(cors({
     return callback(null, true);
   }
 }));
-// app.use(cors())
-
-
 
 require("./routes/user.routes.js")(app);
 require("./routes/post.routes.js")(app);

@@ -7,18 +7,33 @@ const User = require('../models/User');
 
 module.exports = (app) => {
     // login user:
-    app.post('/login', async (req, res, next)=>{
-        res.send('ok');
+    app.post('/login', jsonParser, async (req, res, next)=> {
+        let email       = req.body.email;
+        let password    = req.body.password;
+
+        try {
+           // query the db and find a match:
+           User.findOne({'email': email, 'password': password}, '_id firstname lastname ', (err, docs)=>{
+                if(err){
+                    console.log(err)
+                }else{
+                    console.log(docs);
+                    res.send(docs);
+                }
+            })
+        }catch(e){
+            res.status(400).json({ msg: e.message });
+        }
     });
 
     // signup user:
     app.post('/signup', jsonParser, async (req, res, next) => {
         console.log(req.body);
         
-        let firstname=req.body.firstname;
-        let lastname= req.body.lastname;
-        let email= req.body.email;
-        let password= req.body.password;
+        let firstname   = req.body.firstname;
+        let lastname    = req.body.lastname;
+        let email       = req.body.email;
+        let password    = req.body.password;
 
         var data = new User({ firstname: firstname ,lastname: lastname, email: email, password:password });
         try {
