@@ -42,5 +42,6 @@ app.use(cors({
 
 
 
-require("./routes/routes.js")(app);
+require("./routes/user.routes.js")(app);
+require("./routes/post.routes.js")(app);
 app.listen(PORT, () =>{ console.log("started on port 5000") });

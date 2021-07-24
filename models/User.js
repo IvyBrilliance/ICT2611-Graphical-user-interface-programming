@@ -1,8 +1,5 @@
-// import { Schema, model } from 'mongoose';
 var mongoose = require('mongoose');
 let Schema = mongoose.Schema;
-// let model = mongoose.model;
-
 
 const UserSchema = new Schema({
   firstname: {
@@ -30,11 +27,6 @@ const UserSchema = new Schema({
   }
 });
 
-const UserS = mongoose.model('users', UserSchema);
+const User = mongoose.model('users', UserSchema);
 
-module.exports = UserS;
-/*{
-name: "dan",
-email: "daniel@gmail.com",
-password: "dan"
-}*/
+module.exports = User;
