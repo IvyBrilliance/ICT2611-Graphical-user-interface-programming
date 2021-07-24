@@ -1,6 +1,5 @@
 import React from 'react';
 import { Button, Form, FormGroup, Label, Input, FormText,Alert } from 'reactstrap';
-
 import {Container, Col, Row} from "reactstrap";
 import { useForm } from "react-hook-form";
 import axios from 'axios';
@@ -15,7 +14,7 @@ const Signup = () => {
 			email: data.email,
 			password: data.password
 		})
-		.then(console.log('yeah'))
+		.then(console.log('submitted'))
 	}
 
   	return (
@@ -24,21 +23,21 @@ const Signup = () => {
     	<form onSubmit={handleSubmit(onSubmit)}>
 			<FormGroup>
 				<Label for="">First name</Label>
-				<input {...register('firstname')} type="text" name="firstname" id="" />
+				<Input {...register('firstname')} type="text" name="firstname" id="" />
 			</FormGroup>
 			<FormGroup>
 				<Label for="">Last name</Label>
-				<input {...register('lastname')} type="lastname" name="lastname" id="" />
+				<Input {...register('lastname')} type="lastname" name="lastname" id="" />
 			</FormGroup>
 			<FormGroup>
 				<Label for="">Email</Label>
-				<input {...register('email')} type="email" name="email" id="" />
+				<Input {...register('email')} type="email" name="email" id="" />
 			</FormGroup>
 			<FormGroup>
 				<Label for="">Password</Label>
-				<input {...register('password')} type="password" name="password" id=""/>
+				<Input {...register('password')} type="password" name="password" id=""/>
 			</FormGroup>
-		       <input  id="submitButton" className="btn btn-primary" type="submit" />
+		       <Button  id="submitButton" className="btn btn-primary" type="submit">Signup</Button>
 	    </form>
     </Container>
   )

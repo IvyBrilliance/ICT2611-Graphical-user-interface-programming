@@ -8,35 +8,40 @@ var bodyParser = require('body-parser')
 var jsonParser = bodyParser.json()
 var slug = require('slug');
 var slugify = require('slugify');
+const jwt = require('jsonwebtoken');
 /*----------------------------------------------------------------*/
-
-
+const UserS = require('../models/User');
+console.log(UserS)
 
 var mongoose = require('mongoose');
 let Schema = mongoose.Schema;
-const UserSchema = new Schema({
-  firstname: {
-    type: String,
-    required: true
-  },
-  lastname: {
-    type: String,
-    required: true
-  },
-  email: {
-    type: String,
-    required: true,
-    unique: true
-  },
-  password: {
-    type: String,
-    required: true
-  },
-  register_date: {
-    type: Date,
-    default: Date.now
-  }
-});
+
+// const UserSchema = new Schema({
+//   firstname: {
+//     type: String,
+//     required: true
+//   },
+//   lastname: {
+//     type: String,
+//     required: true
+//   },
+//   email: {
+//     type: String,
+//     required: true,
+//     unique: true,
+//     index:true,
+//     sparse:true
+//   },
+//   password: {
+//     type: String,
+//     required: true
+//   },
+//   register_date: {
+//     type: Date,
+//     default: Date.now
+//   }
+// });
+
 
 const PostSchema = new Schema({
   title: {
@@ -65,12 +70,13 @@ const PostSchema = new Schema({
   }
 });
 
+
 const Post = mongoose.model('posts', PostSchema);
-const User = mongoose.model('users', UserSchema);
 
 
 
-// const User = require('../models/User');
+
+
 module.exports = (app) => {
 
 	// find one user
@@ -101,21 +107,25 @@ module.exports = (app) => {
 
     // create a user:
     app.post('/signup', jsonParser, async (req, res, next) => {
-    	console.log("accessed create user route");
-        try {
-          	var item = {
-          		firstname: req.body.firstname,
-                lastname: req.body.lastname,
-          		email: req.body.email,
-          		password: req.body.password
-          	}
+    	console.log(req.body);
+        
+        let firstname=req.body.firstname;
+        let lastname= req.body.lastname;
+        let email= req.body.email;
+        let password= req.body.password;
 
-          	let data = new User(item);
-          	data.save();
-          	res.send("successfully added a new user to the database");
-        } catch (e) {
+        var data = new UserS({ firstname: firstname ,lastname: lastname, email: email, password:password });
+        try {
+            data.save(function(err, user) {
+                 
+                if (err) return console.error(err);
+                console.log(user.firstname+ " "+ user.lastname+ " saved to users collection.");
+                res.json("success");
+            });
+        }catch(e){
             res.status(400).json({ msg: e.message });
         }
+        
     });
 
 
@@ -126,7 +136,7 @@ module.exports = (app) => {
                 console.log(err);
             }
             else{
-                console.log("Result : ", docs);
+                // console.log("Result : ", docs);
                 res.send(docs);
             }
         });

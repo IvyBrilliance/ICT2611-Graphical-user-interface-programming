@@ -3,16 +3,22 @@ var mongoose = require('mongoose');
 let Schema = mongoose.Schema;
 // let model = mongoose.model;
 
-// Create Schema
+
 const UserSchema = new Schema({
-  name: {
+  firstname: {
+    type: String,
+    required: true
+  },
+  lastname: {
     type: String,
     required: true
   },
   email: {
     type: String,
     required: true,
-    unique: true
+    unique: true,
+    index:true,
+    sparse:true
   },
   password: {
     type: String,
@@ -24,12 +30,9 @@ const UserSchema = new Schema({
   }
 });
 
-const User = mongoose.model('User', UserSchema);
+const UserS = mongoose.model('users', UserSchema);
 
-// export default User;
-module.exports ={
-  User
-}
+module.exports = UserS;
 /*{
 name: "dan",
 email: "daniel@gmail.com",
