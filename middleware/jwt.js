@@ -14,6 +14,8 @@ const verifyJwt  = (req, res , next)=>{
 			}else{
 				// we somewhat store the Id so that we dont have to authenticate everytime:
 				//
+				console.log(decoded)
+				req.user_id = decoded.user_id;
 				res.json({auth: true, message: "Successfully authenticated"});
 				next();
 			}

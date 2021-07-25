@@ -5,11 +5,7 @@ import { Button, Form, FormGroup, Label, Input, FormText,Alert } from 'reactstra
 import { app } from "../base";
 import axios from 'axios'
 import { useForm } from "react-hook-form";
-import {getSession} from '../session.js'
-
-/*
-This is an importnant page and it is here that i need to make sure that 
-the user is logged in before i allow him this page access*/
+import {getSession, deleteSession} from '../session.js'
 
 const OurAlert = (props) => {
 	const [visible, setVisible] = useState(true);
@@ -48,7 +44,7 @@ const Create = () => {
 		if(myToken === null){
 			 history.push("/login");
 		}else{
-			myToken= myToken.token;
+			myToken = myToken.token;
 		}
 		
 
@@ -62,20 +58,14 @@ const Create = () => {
 		.then(async(res) => {
 			console.log(res);
 			if(res.data.auth){
-				// then the user is successfully authenticatd:
-				//setInfo();
 				setFirstname(await getSession().firstname);
 				setLastname(await getSession().lastname);
-				// setToken(myToken);
 			}else{
-
 				return <Redirect to='/login'  />
 				console.log(res.data.message)
-
 			}
 		})
 		.catch((err) => {
-		    //return  error;
 		    console.log(err)
 		});
 	}, [])
@@ -105,6 +95,11 @@ const Create = () => {
 		    console.log(error);
 		});
   	
+	}
+
+	const handleLogout = ()=>{
+		deleteSession();
+		history.push('/login');
 	}
 
 
@@ -163,6 +158,10 @@ const Create = () => {
 				)}
 				</div>
 			</Row>*/}
+
+			<Row>
+			<Button onClick={handleLogout}>logout</Button>	
+			</Row>
 
 		</Container>
 	  )

@@ -1,4 +1,6 @@
 import React from 'react';
+import {useHistory} from 'react-router-dom';
+
 import { Button, Form, FormGroup, Label, Input, FormText,Alert } from 'reactstrap';
 import {Container, Col, Row} from "reactstrap";
 import { useForm } from "react-hook-form";
@@ -6,6 +8,8 @@ import axios from 'axios';
 import {createSession} from '../session.js'
 
 const Signup = () => {
+	let history = useHistory();
+
 	const { register, handleSubmit } = useForm();
 
 	const onSubmit = (data)=>{
@@ -17,10 +21,11 @@ const Signup = () => {
 		})
 		.then((res)=>{
 			console.log(res.data);
-
-			// set session with the data:
 			createSession(res.data);
-
+			history.push("/create");
+		})
+		.catch( err =>{
+			console.log(err);
 		})
 	}
 

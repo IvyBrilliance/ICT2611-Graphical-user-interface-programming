@@ -17,7 +17,7 @@ const generateAccessToken = async(id) => {
 module.exports = (app) => {
 
 
-    app.get('/isUserAuthenticated',jsonParser, jwtauth.verifyJwt, (req, res, next)=>{
+    app.get('/isUserAuthenticated',jsonParser, jwtauth.verifyJwt, async(req, res, next)=>{
         console.log('auth route called...');
     });
 
@@ -28,15 +28,13 @@ module.exports = (app) => {
 
         try {
            // query the db and find a match:
-           User.findOne({'email': email, 'password': password}, '_id firstname lastname ', (err, docs)=>{
+           User.findOne({'email': email, 'password': password}, '_id firstname lastname ', async(err, docs)=>{
                 if(err){
                     console.log(err)
                 }else{
-                    // const token = jwt.sign({docs._id},);
-                  
-
+                     let token = await generateAccessToken(docs.id);
                     console.log(docs);
-                    res.send(docs);
+                    res.json({_id:docs._id, firstname: docs.firstname, lastname:docs.lastname, token:token });
                 }
             })
         }catch(e){
@@ -46,7 +44,6 @@ module.exports = (app) => {
 
     // signup user:
     app.post('/signup', jsonParser, async (req, res, next) => {
-        console.log(req.body);
         
         let {firstname, lastname, email, password} = req.body;
 
@@ -79,7 +76,6 @@ module.exports = (app) => {
 
 	// find one user
     app.get('/users',  async(req, res, next) => {
-    	console.log("accessed");
         try {
           	User.find({}, function(err, docs) {
 			    if (!err) { 
