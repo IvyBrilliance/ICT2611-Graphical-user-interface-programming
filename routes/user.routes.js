@@ -1,10 +1,18 @@
 var bodyParser = require('body-parser')
-var jsonParser = bodyParser.json()
 const jwt = require('jsonwebtoken');
+var bcrypt = require('bcryptjs');
 /*----------------------------------------------------------------*/
+
+require("dotenv").config();
 const User = require('../models/User');
+var jsonParser = bodyParser.json()
+var salt = bcrypt.genSaltSync(10);
 
+const generateAccessToken = async(id, email) => {
+  return jwt.sign({user_id: id, email}, process.env.TOKEN_SECRET, { expiresIn: '1800s' });
+}
 
+// console.log(process.env.TOKEN_SECRET);
 module.exports = (app) => {
     // login user:
     app.post('/login', jsonParser, async (req, res, next)=> {
@@ -17,6 +25,9 @@ module.exports = (app) => {
                 if(err){
                     console.log(err)
                 }else{
+                    // const token = jwt.sign({docs._id},);
+                  
+
                     console.log(docs);
                     res.send(docs);
                 }
@@ -30,18 +41,28 @@ module.exports = (app) => {
     app.post('/signup', jsonParser, async (req, res, next) => {
         console.log(req.body);
         
-        let firstname   = req.body.firstname;
-        let lastname    = req.body.lastname;
-        let email       = req.body.email;
-        let password    = req.body.password;
+        let {firstname, lastname, email, password} = req.body;
 
-        var data = new User({ firstname: firstname ,lastname: lastname, email: email, password:password });
+        const oldUser = await User.findOne({ email });
+        if(oldUser){
+            return res.status(409).send("User Already exists, Please login.");
+        }
+
+        let encryptedPassword = await bcrypt.hash(password, 10);
+        let data = new User({ firstname: firstname ,lastname: lastname, email: email, password:encryptedPassword });
+
         try {
-            data.save(function(err, user) {
-                 
-                if (err) return console.error(err);
-                console.log(user.firstname+ " "+ user.lastname+ " saved to users collection.");
-                res.json("success");
+            data.save(async(err, user)=> {
+                if (err){
+                    return console.error(err);
+                } 
+
+                let token = await generateAccessToken(user.id, user.email);
+                
+                console.log("successfully created a new user and generated an access token!");
+
+                console.log(user);
+                res.json({_id:user._id, firstname: user.firstname, lastname:user.lastname, token:token });
             });
         }catch(e){
             res.status(400).json({ msg: e.message });

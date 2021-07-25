@@ -14,7 +14,9 @@ const Signup = () => {
 			email: data.email,
 			password: data.password
 		})
-		.then(console.log('submitted'))
+		.then((res)=>{
+			console.log(res)
+		})
 	}
 
   	return (
