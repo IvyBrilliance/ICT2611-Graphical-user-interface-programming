@@ -65,7 +65,6 @@ module.exports = (app) => {
                 } 
 
                 let token = await generateAccessToken(user.id);
-                console.log(user._id)
 
                 console.log("successfully created a new user and generated an access token!");
 

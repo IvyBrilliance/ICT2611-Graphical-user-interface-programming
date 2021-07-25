@@ -8,7 +8,12 @@ const deleteSession = ()=>{
 }
 
 const getSession = ()=>{
-	return JSON.parse(sessionStorage.getItem('theeconomist'));
+	if(sessionStorage.getItem('theeconomist') === null){
+		return null;
+	}
+	else{
+		return JSON.parse(sessionStorage.getItem('theeconomist'));		
+	}
 }
 
 export {createSession, deleteSession, getSession}

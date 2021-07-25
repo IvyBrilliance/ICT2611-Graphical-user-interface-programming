@@ -1,8 +1,7 @@
 import React, {useState, useEffect} from 'react'
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch, Redirect,useHistory} from 'react-router-dom';
 import {Container, Col, Row} from "reactstrap";
 import { Button, Form, FormGroup, Label, Input, FormText,Alert } from 'reactstrap';
-import { useHistory } from 'react-router-dom'
 import { app } from "../base";
 import axios from 'axios'
 import { useForm } from "react-hook-form";
@@ -34,6 +33,8 @@ export const OurAlertSimple = (props) => {
 }
 
 const Create = () => {
+	let history = useHistory();
+
 	const [imageUrl, setImageUrl] = useState('');
 	const {register, handleSubmit } = useForm();
 	const [firstname, setFirstname] = useState('');
@@ -42,9 +43,14 @@ const Create = () => {
 
 	// useEffect:
 	useEffect(async()=>{
-
-		let myToken = await getSession().token;
-		console.log(myToken);
+	
+		let myToken = await getSession();
+		if(myToken === null){
+			 history.push("/login");
+		}else{
+			myToken= myToken.token;
+		}
+		
 
 		axios.get('http://localhost:5000/isUserAuthenticated' , {
 		    headers: {
@@ -53,16 +59,19 @@ const Create = () => {
 		        'Content-Type': 'application/json'
 		    }
 		})
-		.then(res => {
+		.then(async(res) => {
 			console.log(res);
 			if(res.data.auth){
 				// then the user is successfully authenticatd:
 				//setInfo();
-				setFirstname(res.data.firstname);
-				setLastname(res.data.lastname);
-				setToken(res.data.token);
+				setFirstname(await getSession().firstname);
+				setLastname(await getSession().lastname);
+				// setToken(myToken);
 			}else{
+
+				return <Redirect to='/login'  />
 				console.log(res.data.message)
+
 			}
 		})
 		.catch((err) => {
