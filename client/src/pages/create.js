@@ -4,9 +4,13 @@ import {Container, Col, Row} from "reactstrap";
 import { Button, Form, FormGroup, Label, Input, FormText,Alert } from 'reactstrap';
 import { useHistory } from 'react-router-dom'
 import { app } from "../base";
-
 import axios from 'axios'
 import { useForm } from "react-hook-form";
+import {getSession} from '../session.js'
+
+/*
+This is an importnant page and it is here that i need to make sure that 
+the user is logged in before i allow him this page access*/
 
 const OurAlert = (props) => {
 	const [visible, setVisible] = useState(true);
@@ -31,9 +35,45 @@ export const OurAlertSimple = (props) => {
 
 const Create = () => {
 	const [imageUrl, setImageUrl] = useState('');
-	const { register, handleSubmit } = useForm();
-	const onSubmit = async (data) => {
+	const {register, handleSubmit } = useForm();
+	const [firstname, setFirstname] = useState('');
+	const [lastname, setLastname] = useState('');
+	const [token, setToken] = useState('');
 
+	// useEffect:
+	useEffect(async()=>{
+
+		let myToken = await getSession().token;
+		console.log(myToken);
+
+		axios.get('http://localhost:5000/isUserAuthenticated' , {
+		    headers: {
+		        'token': myToken,
+		        'Accept' : 'application/json',
+		        'Content-Type': 'application/json'
+		    }
+		})
+		.then(res => {
+			console.log(res);
+			if(res.data.auth){
+				// then the user is successfully authenticatd:
+				//setInfo();
+				setFirstname(res.data.firstname);
+				setLastname(res.data.lastname);
+				setToken(res.data.token);
+			}else{
+				console.log(res.data.message)
+			}
+		})
+		.catch((err) => {
+		    //return  error;
+		    console.log(err)
+		});
+	}, [])
+
+
+	// submit function:
+	const onSubmit = async (data) => {
 		const file = data.image[0];
 	    const storageRef = app.storage().ref();
 	    const fileRef = storageRef.child(file.name);
@@ -61,6 +101,14 @@ const Create = () => {
 
 	return (
 	    <Container className=''>
+	    {(firstname)?(
+	    	<Row>
+	    		<h3>Your name is : {firstname}</h3>
+	    		<h3>Your lastname is :{lastname}</h3>
+	    		<h3>Your token is :{token}</h3>
+	    	</Row>
+	    	): (<div></div>)
+	    }
 			<form onSubmit={handleSubmit(onSubmit)}>
 				<FormGroup>
 					<Label for="">Title</Label>

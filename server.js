@@ -7,6 +7,11 @@ const cors = require('cors');
 const PORT = 5000;
 const app = express();
 
+/**/
+const jwt = require('jsonwebtoken');
+require("dotenv").config();
+
+
 
 mongoose.set('useNewUrlParser', true);
 mongoose.set('useFindAndModify', false);
@@ -39,6 +44,7 @@ app.use(cors({
   }
 }));
 
+//
 require("./routes/user.routes.js")(app);
 require("./routes/post.routes.js")(app);
 app.listen(PORT, () =>{ console.log("started on port 5000") });

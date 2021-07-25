@@ -3,6 +3,7 @@ import { Button, Form, FormGroup, Label, Input, FormText,Alert } from 'reactstra
 import {Container, Col, Row} from "reactstrap";
 import { useForm } from "react-hook-form";
 import axios from 'axios';
+import {createSession} from '../session.js'
 
 const Signup = () => {
 	const { register, handleSubmit } = useForm();
@@ -15,7 +16,11 @@ const Signup = () => {
 			password: data.password
 		})
 		.then((res)=>{
-			console.log(res)
+			console.log(res.data);
+
+			// set session with the data:
+			createSession(res.data);
+
 		})
 	}
 

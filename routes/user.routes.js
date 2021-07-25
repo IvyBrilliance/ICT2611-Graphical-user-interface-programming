@@ -1,6 +1,7 @@
 var bodyParser = require('body-parser')
 const jwt = require('jsonwebtoken');
 var bcrypt = require('bcryptjs');
+let jwtauth = require('../middleware/jwt.js');
 /*----------------------------------------------------------------*/
 
 require("dotenv").config();
@@ -8,12 +9,18 @@ const User = require('../models/User');
 var jsonParser = bodyParser.json()
 var salt = bcrypt.genSaltSync(10);
 
-const generateAccessToken = async(id, email) => {
-  return jwt.sign({user_id: id, email}, process.env.TOKEN_SECRET, { expiresIn: '1800s' });
+const generateAccessToken = async(id) => {
+  return jwt.sign({user_id: id}, process.env.TOKEN_SECRET, { expiresIn: '2h' });
 }
 
 // console.log(process.env.TOKEN_SECRET);
 module.exports = (app) => {
+
+
+    app.get('/isUserAuthenticated',jsonParser, jwtauth.verifyJwt, (req, res, next)=>{
+        console.log('auth route called...');
+    });
+
     // login user:
     app.post('/login', jsonParser, async (req, res, next)=> {
         let email       = req.body.email;
@@ -49,7 +56,7 @@ module.exports = (app) => {
         }
 
         let encryptedPassword = await bcrypt.hash(password, 10);
-        let data = new User({ firstname: firstname ,lastname: lastname, email: email, password:encryptedPassword });
+        let data = new User({ firstname: firstname ,lastname: lastname, email: email, password:password });
 
         try {
             data.save(async(err, user)=> {
@@ -57,8 +64,9 @@ module.exports = (app) => {
                     return console.error(err);
                 } 
 
-                let token = await generateAccessToken(user.id, user.email);
-                
+                let token = await generateAccessToken(user.id);
+                console.log(user._id)
+
                 console.log("successfully created a new user and generated an access token!");
 
                 console.log(user);
