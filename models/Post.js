@@ -15,6 +15,10 @@ const PostSchema = new Schema({
     type: mongoose.ObjectId,
     required: true
   },
+  writer_details:{
+    type: String,
+    required:true
+  },
   slug: {
     type: String,
      required: true

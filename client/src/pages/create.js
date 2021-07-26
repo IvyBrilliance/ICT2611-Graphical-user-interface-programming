@@ -7,6 +7,8 @@ import axios from 'axios'
 import { useForm } from "react-hook-form";
 import {getSession, deleteSession} from '../session.js'
 import {isAuthenticated} from '../authentication';
+import { CKEditor } from '@ckeditor/ckeditor5-react';
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 
 
 const OurAlert = (props) => {
@@ -38,52 +40,21 @@ const Create = () => {
 	const [firstname, setFirstname] = useState('');
 	const [lastname, setLastname] = useState('');
 	const [token, setToken] = useState('');
-
-	// // useEffect:
-	// useEffect(async()=>{
-	
-	// 	let myToken = await getSession();
-	// 	if(myToken === null){
-	// 		 history.push("/login");
-	// 	}else{
-	// 		myToken = myToken.token;
-	// 	}
-		
-
-	// 	axios.get('http://localhost:5000/isUserAuthenticated' , {
-	// 	    headers: {
-	// 	        'token': myToken,
-	// 	        'Accept' : 'application/json',
-	// 	        'Content-Type': 'application/json'
-	// 	    }
-	// 	})
-	// 	.then(async(res) => {
-	// 		console.log(res);
-	// 		if(res.data.auth){
-	// 			setFirstname(await getSession().firstname);
-	// 			setLastname(await getSession().lastname);
-	// 		}else{
-	// 			return <Redirect to='/login'  />
-	// 			console.log(res.data.message)
-	// 		}
-	// 	})
-	// 	.catch((err) => {
-	// 	    console.log(err)
-	// 	});
-	// }, [])
-
 	const [isAuthorized, setIsAuthorized] = React.useState(false);
+	const [ckeditor, setCkeditor] = useState('');
 
 	React.useEffect( () => {
 		if(isAuthenticated() === true){
 			setIsAuthorized(true)
-			// history.push('/create')
 		}else{
 			console.log('no, not authenticated');
-			// history.push('/login');
 		}
 
 	}, []);
+
+	// useEffect(() => {
+	//   register('body')
+	// })
 
 
 	// submit function:
@@ -97,11 +68,13 @@ const Create = () => {
 		const fileUrl = await fileRef.getDownloadURL();
 		setImageUrl(fileUrl);
 		
+		let writer = await getSession()._id;
+		console.log('is'+ writer);
 		axios.post('http://localhost:5000/post', {
 		    title: data.title,
-		    body: data.body,
+		    body: ckeditor,
 		    img: fileUrl,
-		    writer: 'daniel'
+		    writer: writer
 		  })
 		  .then(function (response) {
 		    console.log(response);
@@ -141,12 +114,25 @@ const Create = () => {
 
 				<FormGroup>
 			        <Label for="">Body</Label>
-			        <textarea
-						type="textarea"
-						className="form-control"
-						name="body"
-						{...register('body')}
-					></textarea>
+			        <CKEditor
+	                    editor={ ClassicEditor }
+	                    data="<p>Hello from CKEditor 5!</p>"
+	                    onReady={ editor => {
+	                        // You can store the "editor" and use when it is needed.
+	                        console.log( 'Editor is ready to use!', editor );
+	                    } }
+	                       onChange={ ( event, editor ) => {
+		                        const data = editor.getData();
+		                        console.log( { event, editor, data } );
+		                        setCkeditor(data);
+		                    } }
+	                    onBlur={ ( event, editor ) => {
+	                        console.log( 'Blur.', editor );
+	                    } }
+	                    onFocus={ ( event, editor ) => {
+	                        console.log( 'Focus.', editor );
+	                    } }
+	                />
 		      </FormGroup>
 
 		      	<FormGroup>

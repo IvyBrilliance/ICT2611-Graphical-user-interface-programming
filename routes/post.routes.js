@@ -5,18 +5,17 @@ var slugify = require('slugify');
 const jwt = require('jsonwebtoken');
 
 const Post = require('../models/Post');
-
+var User = require('../models/User');
 
 module.exports = (app) =>{
 
     // find one post
     app.get(`/post/:slug`, async(req, res, next) => {
-        Post.findOne({'slug': req.params.slug }, 'slug title body img writer', function (err, docs) {
+        Post.findOne({'slug': req.params.slug }, 'slug title body img writer_details', async (err, docs) =>{
             if (err){
                 console.log(err);
             }
             else{
-                // console.log("Result : ", docs);
                 res.send(docs);
             }
         });
@@ -26,10 +25,10 @@ module.exports = (app) =>{
     // find all posts
     app.get('/posts',  async(req, res, next) => {
         try {
-            Post.find({}, function(err, docs) {
+            Post.find({}, async(err, docs)=> {
                 if (!err) { 
+                    console.log(docs)
                     res.send(docs);
-                    // process.exit();
                 }
                 else {
                     throw err;
@@ -43,11 +42,10 @@ module.exports = (app) =>{
     });
 
     // create a post:
-    app.post('/post', jsonParser, (req, res, next) => {
-
+    app.post('/post', jsonParser, async(req, res, next) => {
 		let title = req.body.title;
 		let body = req.body.body;
-        let writer = req.body.objectId;
+        let writer = req.body.writer;
         let img = req.body.img;
         let slug = slugify(req.body.title, {
             replacement: '-', 
@@ -56,8 +54,13 @@ module.exports = (app) =>{
             strict: false,
             locale: 'vi', 
             trim: true    
-          })
-		var data = new Post({ title: title ,body: body, writer: writer, img: img, slug: slug });
+        })
+
+        const user = await User.findOne({_id: writer })
+        let {firstname, lastname} = user;
+        let writerDetails = `${firstname} ${lastname}`;
+
+		var data = new Post({ title: title ,body: body, writer: writer, img: img, slug: slug, writer_details: writerDetails});
 
       	try {
             data.save(function(err, post) {
