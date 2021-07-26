@@ -26,20 +26,39 @@ module.exports = (app) => {
         let email       = req.body.email;
         let password    = req.body.password;
 
-        try {
-           // query the db and find a match:
-           User.findOne({'email': email, 'password': password}, '_id firstname lastname ', async(err, docs)=>{
-                if(err){
-                    console.log(err)
-                }else{
-                     let token = await generateAccessToken(docs.id);
-                    console.log(docs);
-                    res.json({_id:docs._id, firstname: docs.firstname, lastname:docs.lastname, token:token });
-                }
-            })
-        }catch(e){
-            res.status(400).json({ msg: e.message });
+        // try {
+        //     const validPassword = await bcrypt.compare(body.password, user.password);
+        //    // query the db and find a match:
+        //    User.findOne({'email': email, 'password': password}, '_id firstname lastname ', async(err, docs)=>{
+        //         if(err){
+        //             console.log(err)
+        //             res.send('user doesnt exist');
+        //         }else{
+        //              let token = await generateAccessToken(docs.id);
+        //             console.log(docs);
+        //             res.json({_id:docs._id, firstname: docs.firstname, lastname:docs.lastname, token:token });
+        //         }
+        //     })
+        // }catch(e){
+        //     res.status(400).json({ msg: e.message });
+        // }
+
+        const user = await User.findOne({email: email})
+        if(user){
+            const validPassword = await bcrypt.compare(password, user.password);
+    
+            if (validPassword) {
+                let token = await generateAccessToken(user.id);
+                //res.status(200).json({ message: "Valid password" });
+                console.log(user);
+                res.json({_id:user._id, firstname: user.firstname, lastname:user.lastname, token:token });
+            } else {
+                res.status(400).json({ error: "Invalid Password" });
+            }
+        }else if(!user){
+            res.status(401).json({ error: "User does not exist" });
         }
+        
     });
 
     // signup user:
@@ -53,7 +72,7 @@ module.exports = (app) => {
         }
 
         let encryptedPassword = await bcrypt.hash(password, 10);
-        let data = new User({ firstname: firstname ,lastname: lastname, email: email, password:password });
+        let data = new User({ firstname: firstname ,lastname: lastname, email: email, password:encryptedPassword });
 
         try {
             data.save(async(err, user)=> {

@@ -12,7 +12,7 @@ const PostSchema = new Schema({
     required: true
   },
   writer: {
-    type: String,
+    type: mongoose.ObjectId,
     required: true
   },
   slug: {

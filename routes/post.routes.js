@@ -47,7 +47,7 @@ module.exports = (app) =>{
 
 		let title = req.body.title;
 		let body = req.body.body;
-        let writer = "dan"
+        let writer = req.body.objectId;
         let img = req.body.img;
         let slug = slugify(req.body.title, {
             replacement: '-', 

@@ -6,6 +6,8 @@ import { app } from "../base";
 import axios from 'axios'
 import { useForm } from "react-hook-form";
 import {getSession, deleteSession} from '../session.js'
+import {isAuthenticated} from '../authentication';
+
 
 const OurAlert = (props) => {
 	const [visible, setVisible] = useState(true);
@@ -37,38 +39,51 @@ const Create = () => {
 	const [lastname, setLastname] = useState('');
 	const [token, setToken] = useState('');
 
-	// useEffect:
-	useEffect(async()=>{
+	// // useEffect:
+	// useEffect(async()=>{
 	
-		let myToken = await getSession();
-		if(myToken === null){
-			 history.push("/login");
-		}else{
-			myToken = myToken.token;
-		}
+	// 	let myToken = await getSession();
+	// 	if(myToken === null){
+	// 		 history.push("/login");
+	// 	}else{
+	// 		myToken = myToken.token;
+	// 	}
 		
 
-		axios.get('http://localhost:5000/isUserAuthenticated' , {
-		    headers: {
-		        'token': myToken,
-		        'Accept' : 'application/json',
-		        'Content-Type': 'application/json'
-		    }
-		})
-		.then(async(res) => {
-			console.log(res);
-			if(res.data.auth){
-				setFirstname(await getSession().firstname);
-				setLastname(await getSession().lastname);
-			}else{
-				return <Redirect to='/login'  />
-				console.log(res.data.message)
-			}
-		})
-		.catch((err) => {
-		    console.log(err)
-		});
-	}, [])
+	// 	axios.get('http://localhost:5000/isUserAuthenticated' , {
+	// 	    headers: {
+	// 	        'token': myToken,
+	// 	        'Accept' : 'application/json',
+	// 	        'Content-Type': 'application/json'
+	// 	    }
+	// 	})
+	// 	.then(async(res) => {
+	// 		console.log(res);
+	// 		if(res.data.auth){
+	// 			setFirstname(await getSession().firstname);
+	// 			setLastname(await getSession().lastname);
+	// 		}else{
+	// 			return <Redirect to='/login'  />
+	// 			console.log(res.data.message)
+	// 		}
+	// 	})
+	// 	.catch((err) => {
+	// 	    console.log(err)
+	// 	});
+	// }, [])
+
+	const [isAuthorized, setIsAuthorized] = React.useState(false);
+
+	React.useEffect( () => {
+		if(isAuthenticated() === true){
+			setIsAuthorized(true)
+			// history.push('/create')
+		}else{
+			console.log('no, not authenticated');
+			// history.push('/login');
+		}
+
+	}, []);
 
 
 	// submit function:
