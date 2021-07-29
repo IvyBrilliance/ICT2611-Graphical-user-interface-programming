@@ -8,9 +8,15 @@ import {
 import NavbarMain from '../components/navbar'
 import axios from 'axios';
 
+// social media icons imports:
+import {FaTwitter} from 'react-icons/fa';
+import {CgFacebook} from 'react-icons/cg';
+import {FaInstagramSquare} from 'react-icons/fa';
+import {FaYoutube} from 'react-icons/fa';
+import {FaFirefoxBrowser} from 'react-icons/fa';
 
 const Profile = ({ match }) => {
-	 let { slug } = match.params
+	let { slug } = match.params
 	console.log(slug);
     const [user, setUser] = useState({});
     const [userPosts, setUserPosts] = useState([])
@@ -28,8 +34,6 @@ const Profile = ({ match }) => {
 					.then(function (response) {
 						console.log(response.data);
 						setUserPosts(response.data);
-						// setLoading(false);
-
 					})
 					.catch(function (error) {
 					console.log(error);
@@ -50,12 +54,28 @@ const Profile = ({ match }) => {
     		user.hasOwnProperty("_id")?(
 
     			<Container>
-    				<h3>{user.firstname} {user.lastname}</h3>
-    				<img style={{maxWidth: '600px'}} src="https://images.pexels.com/photos/1374510/pexels-photo-1374510.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260" className="rounded mx-auto d-block" alt="..."/>
-    				<Button className="btn btn-primary" value="">change profile pic</Button>
+    				
+    				<img style={{maxWidth: '400px'}} src="https://images.pexels.com/photos/1374510/pexels-photo-1374510.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260" className="rounded mx-auto d-block" alt="..."/>
+    				
+    				<Row>
+	    				<Col className='text-center'>
+	    					<h3>{user.firstname} {user.lastname}</h3>
+	    				</Col>
+    				</Row>
+    				{/*<Button className="btn btn-primary" value="">change profile pic</Button>*/}
 
+    				<Row>
+	    				<Col className='text-center'>
+	    				{
+	    					user.hasOwnProperty("facebook")?(<CgFacebook size='40'></CgFacebook>): (<div></div>)
+	    				}
+	    				
+	    				{
+	    					user.hasOwnProperty("twitter")?(<FaTwitter size='40'></FaTwitter>): (<div></div>)
+	    				}
+	    				</Col>
+    				</Row>
     				<hr/>
-    				{user.hasOwnProperty("facebook")?(<div>website logo here</div>): <div></div>}
     				<Row>
     				<p>Read my latest blog posts here:</p>
     					<Col md='4'>
