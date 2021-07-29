@@ -20,6 +20,22 @@ module.exports = (app) =>{
             }
         });
     });
+    
+    /// find all posts written by a particular user.
+    app.get('/posts/:object_id', jsonParser, async(req, res, next) => {
+        console.log(req.params)
+        Post.find({'writer': req.params.object_id }, 'id slug title body img writer_details publish_date ', async (err, docs) =>{
+            if (err){
+                console.log(err);
+            }
+            else{
+                // now send his posts:
+                // await Post.find()
+                console.log('is be: '+docs)
+                res.send(docs);
+            }
+        });
+    });
 
 
     // find all posts

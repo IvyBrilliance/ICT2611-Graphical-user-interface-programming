@@ -2,6 +2,8 @@ var bodyParser = require('body-parser')
 const jwt = require('jsonwebtoken');
 var bcrypt = require('bcryptjs');
 let jwtauth = require('../middleware/jwt.js');
+var slugify = require('slugify');
+
 /*----------------------------------------------------------------*/
 
 require("dotenv").config();
@@ -26,22 +28,6 @@ module.exports = (app) => {
         let email       = req.body.email;
         let password    = req.body.password;
 
-        // try {
-        //     const validPassword = await bcrypt.compare(body.password, user.password);
-        //    // query the db and find a match:
-        //    User.findOne({'email': email, 'password': password}, '_id firstname lastname ', async(err, docs)=>{
-        //         if(err){
-        //             console.log(err)
-        //             res.send('user doesnt exist');
-        //         }else{
-        //              let token = await generateAccessToken(docs.id);
-        //             console.log(docs);
-        //             res.json({_id:docs._id, firstname: docs.firstname, lastname:docs.lastname, token:token });
-        //         }
-        //     })
-        // }catch(e){
-        //     res.status(400).json({ msg: e.message });
-        // }
 
         const user = await User.findOne({email: email})
         if(user){
@@ -65,14 +51,28 @@ module.exports = (app) => {
     app.post('/signup', jsonParser, async (req, res, next) => {
         
         let {firstname, lastname, email, password} = req.body;
+        let slugmaterial = `${firstname} ${lastname}`
+       
 
         const oldUser = await User.findOne({ email });
         if(oldUser){
             return res.status(409).send("User Already exists, Please login.");
         }
+         let slug = slugify(slugmaterial, {
+            replacement: '-', 
+            remove: undefined, 
+            lower: true,      
+            strict: false,
+            locale: 'vi', 
+            trim: true    
+        })
+        
+        /* make sure every user has their own slug... in the backened,
+         check if a user slug that is created exists, if it does-gen a new one*/
+
 
         let encryptedPassword = await bcrypt.hash(password, 10);
-        let data = new User({ firstname: firstname ,lastname: lastname, email: email, password:encryptedPassword });
+        let data = new User({ firstname: firstname ,lastname: lastname, email: email, slug:slug, password:encryptedPassword });
 
         try {
             data.save(async(err, user)=> {
@@ -85,7 +85,7 @@ module.exports = (app) => {
                 console.log("successfully created a new user and generated an access token!");
 
                 console.log(user);
-                res.json({_id:user._id, firstname: user.firstname, lastname:user.lastname, token:token });
+                res.json({_id:user._id, firstname: user.firstname, lastname:user.lastname, slug:slug, token:token });
             });
         }catch(e){
             res.status(400).json({ msg: e.message });
@@ -113,6 +113,16 @@ module.exports = (app) => {
         }
     });
 
+     app.get(`/profile/:slug`, async(req, res, next) => {
+        User.findOne({'slug': req.params.slug }, 'slug firstname lastname img twitter facebook instagram website youtube', async (err, docs) =>{
+            if (err){
+                console.log(err);
+            }
+            else{
+                res.send(docs);
+            }
+        });
+    });
    
 };
 

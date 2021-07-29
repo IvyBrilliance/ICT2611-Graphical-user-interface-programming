@@ -17,9 +17,33 @@ const UserSchema = new Schema({
     index:true,
     sparse:true
   },
+  twitter:{
+    type: String
+  },
+  instagram: {
+    type: String
+  }, 
+  facebook:{
+    type: String
+  },
+  youtube: {
+    type: String
+  },
+  website:{
+    type:String
+  },
   password: {
     type: String,
     required: true
+  },
+  slug: {
+    type: String,
+     required: true,
+     unique: true
+  },
+  img: {
+   type: String,
+    required: false
   },
   register_date: {
     type: Date,

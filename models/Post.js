@@ -21,7 +21,8 @@ const PostSchema = new Schema({
   },
   slug: {
     type: String,
-     required: true
+     required: true,
+     unique: true
   },
   img: {
    type: String,
