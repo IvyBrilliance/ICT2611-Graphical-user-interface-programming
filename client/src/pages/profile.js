@@ -5,7 +5,7 @@ import {
   Card, CardImg, CardText, CardBody,
   CardTitle, CardSubtitle, Button
 } from 'reactstrap';
-
+import NavbarMain from '../components/navbar'
 import axios from 'axios';
 
 
@@ -45,6 +45,7 @@ const Profile = ({ match }) => {
 
   return (
     <div>
+    <NavbarMain></NavbarMain>
     	{
     		user.hasOwnProperty("_id")?(
 
