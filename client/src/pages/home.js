@@ -63,11 +63,9 @@ const Home = () =>{
         	):
         	(<div></div>)
         }
-        
         </Row>
 
          <Row>   
-        
         {
         	posts.map(post => 
 
