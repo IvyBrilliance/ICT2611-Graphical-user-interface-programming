@@ -15,7 +15,7 @@ const Home = () =>{
 	const [loading, setLoading] = useState(true);
 	const [stuff, setStuff] = useState([1,2,3]);
 	useEffect(() => {
-		axios.get('http://localhost:5000/posts')
+		axios.get(`${process.env.REACT_APP_SERVER}/posts`)
 		  .then(function (response) {
 		    console.log(response.data); 
 		    setLoading(false);
@@ -36,7 +36,6 @@ const Home = () =>{
 
   return (
     <Container className="">
-    <p>{process.env.REACT_APP_SERVER}</p>
         <Button color="danger">Danger!</Button>
         <Row>
         {
