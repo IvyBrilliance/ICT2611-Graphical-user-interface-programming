@@ -36,6 +36,7 @@ const Home = () =>{
 
   return (
     <Container className="">
+    <p>{process.env.REACT_APP_SERVER}</p>
         <Button color="danger">Danger!</Button>
         <Row>
         {

@@ -81,7 +81,7 @@ const Post = ({ match }) => {
     			</Container>
     		): (
     			<Container>
-    				niks
+    				
     			</Container>
     		)
     	}
