@@ -24,13 +24,13 @@ const Profile = ({ match }) => {
 
 
 	useEffect(async() => {
-			await axios.get(`http://localhost:5000/profile/${slug}`)
+			await axios.get(`${process.env.REACT_APP_SERVER}/profile/${slug}`)
 			  .then(function (response) {
 			    console.log(response.data);
 			    setUser(response.data);
 				// setLoading(false);
 
-				axios.get(`http://localhost:5000/posts/${response.data._id}`)
+				axios.get(`${process.env.REACT_APP_SERVER}/posts/${response.data._id}`)
 					.then(function (response) {
 						console.log(response.data);
 						setUserPosts(response.data);

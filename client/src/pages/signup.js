@@ -13,7 +13,7 @@ const Signup = () => {
 	const { register, handleSubmit } = useForm();
 
 	const onSubmit = (data)=>{
-		axios.post('http://localhost:5000/signup', {
+		axios.post(`${process.env.REACT_APP_SERVER}/signup`, {
 			firstname: data.firstname,
 			lastname: data.lastname,
 			email: data.email,

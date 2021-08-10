@@ -70,7 +70,7 @@ const Create = () => {
 		
 		let writer = await getSession()._id;
 		console.log('is'+ writer);
-		axios.post('http://localhost:5000/post', {
+		axios.post(`${process.env.REACT_APP_SERVER}/post`, {
 		    title: data.title,
 		    body: ckeditor,
 		    img: fileUrl,

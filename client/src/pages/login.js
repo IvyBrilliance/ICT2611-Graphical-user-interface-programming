@@ -25,7 +25,7 @@ const Login = () => {
 	}, []);
 
 	const onSubmit = (data)=>{
-		axios.post('http://localhost:5000/login', {
+		axios.post(`${process.env.REACT_APP_SERVER}/login`, {
 			email: data.email,
 			password: data.password
 		})
