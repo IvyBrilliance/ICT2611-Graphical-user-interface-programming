@@ -1,6 +1,8 @@
 import React,{useState, useEffect} from 'react';
 import {Container, Col, ButtonCard,Card, Button, Row, CardImg, CardText, CardBody,
   CardTitle, CardSubtitle} from 'reactstrap';
+  import NavbarMain from '../components/navbar'
+
 import axios from 'axios';
 import {
    BrowserRouter as Router,
@@ -36,7 +38,7 @@ const Home = () =>{
 
   return (
     <Container className="">
-        <Button color="danger">Danger!</Button>
+    	<NavbarMain></NavbarMain>
         <Row>
         {
         	loading?(stuff.map(s => (

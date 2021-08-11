@@ -2,6 +2,7 @@ import React,{useState,useEffect,UnsafeComponent} from 'react'
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import {Container, Col, Row} from "reactstrap";
 import axios from 'axios';
+import NavbarMain from '../components/navbar'
 
 import createDOMPurify from 'dompurify'
 //import { JSDOM } from 'jsdom'
@@ -28,6 +29,9 @@ const Post = ({ match }) => {
 			  .catch(function (error) {
 			    console.log(error);
 			});
+
+			  // also fetch the post writers image from the database:
+
 		}, []);
 
   return (
@@ -74,10 +78,38 @@ const Post = ({ match }) => {
 
     	{
     		post.hasOwnProperty("body")?(
-    			<Container>
-    				<h3>{post.title}</h3>
-    				<img style={{maxWidth: '600px'}} src={post.img} className="rounded mx-auto d-block" alt="..."/>
-                    <small>writer: {post.writer_details}</small>
+    			<Container  className="text-center">
+    				<NavbarMain></NavbarMain>
+
+    				<Row  className="justify-content-center ">
+    					<h3>{post.title}</h3>
+	    				<img style={{maxWidth: '600px'}} src={post.img} className="rounded mx-auto d-block" alt="..."/>
+			            <small>writer: {post.writer_details}</small>
+			            <br></br>
+			            <p>{post.body}</p>
+			            
+    				</Row>
+    				
+					<br></br>
+
+					<Row className="justify-content-center ">
+						<div style={{width:'600px' }} class="card">
+							<div class="card-body">
+							  <Container class>
+							    <Row>
+							    	<Col md="4">
+										<img src="https://images.pexels.com/photos/8815825/pexels-photo-8815825.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" class="img-thumbnail" alt="..."/>
+							    	</Col>
+
+							    	<Col md="6">
+							    		<p>Hey im daniel, thanks for reading my blog	</p>
+							    	</Col>
+							    </Row>
+							  </Container>
+							  </div>
+						</div>
+					</Row>
+					
     			</Container>
     		): (
     			<Container>
