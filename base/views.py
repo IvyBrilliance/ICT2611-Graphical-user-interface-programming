@@ -1,4 +1,5 @@
 from ast import Delete
+from django import forms
 from django.shortcuts import render, redirect
 # from django.http import HttpResponse
 from django.views.generic.list import ListView
@@ -13,15 +14,23 @@ from django.contrib.auth import login
 
 from .models import Task
 
-class CustomLoginView(LoginView):
+class CustomLoginView(forms.Form):
+    username = forms.CharField(widget=forms.TextInput(attrs={'class': 'special'}))
+    password = forms.URLField()
+        
+
     template_name: str = 'base/login.html'
-    fields = '__all__'
-    redirect_authenticated_user: bool = True
+    # fields = '__all__'
+    # redirect_authenticated_user: bool = True
+  
 
     def get_success_url(self):
         return reverse_lazy('tasks')
 
 class RegisterPage(FormView):
+    
+
+
     template_name = 'base/register.html'
     form_class = UserCreationForm
     redirect_authenticated_user = True
