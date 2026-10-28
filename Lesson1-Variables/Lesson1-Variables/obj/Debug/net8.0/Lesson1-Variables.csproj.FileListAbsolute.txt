@@ -1,0 +1,15 @@
+C:\Users\thomasmuller\Documents\projects\ict2611\Lesson1-Variables\Lesson1-Variables\bin\Debug\net8.0\Lesson1-Variables.exe
+C:\Users\thomasmuller\Documents\projects\ict2611\Lesson1-Variables\Lesson1-Variables\bin\Debug\net8.0\Lesson1-Variables.deps.json
+C:\Users\thomasmuller\Documents\projects\ict2611\Lesson1-Variables\Lesson1-Variables\bin\Debug\net8.0\Lesson1-Variables.runtimeconfig.json
+C:\Users\thomasmuller\Documents\projects\ict2611\Lesson1-Variables\Lesson1-Variables\bin\Debug\net8.0\Lesson1-Variables.dll
+C:\Users\thomasmuller\Documents\projects\ict2611\Lesson1-Variables\Lesson1-Variables\bin\Debug\net8.0\Lesson1-Variables.pdb
+C:\Users\thomasmuller\Documents\projects\ict2611\Lesson1-Variables\Lesson1-Variables\obj\Debug\net8.0\Lesson1-Variables.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\thomasmuller\Documents\projects\ict2611\Lesson1-Variables\Lesson1-Variables\obj\Debug\net8.0\Lesson1-Variables.AssemblyInfoInputs.cache
+C:\Users\thomasmuller\Documents\projects\ict2611\Lesson1-Variables\Lesson1-Variables\obj\Debug\net8.0\Lesson1-Variables.AssemblyInfo.cs
+C:\Users\thomasmuller\Documents\projects\ict2611\Lesson1-Variables\Lesson1-Variables\obj\Debug\net8.0\Lesson1-Variables.csproj.CoreCompileInputs.cache
+C:\Users\thomasmuller\Documents\projects\ict2611\Lesson1-Variables\Lesson1-Variables\obj\Debug\net8.0\Lesson1-Variables.sourcelink.json
+C:\Users\thomasmuller\Documents\projects\ict2611\Lesson1-Variables\Lesson1-Variables\obj\Debug\net8.0\Lesson1-Variables.dll
+C:\Users\thomasmuller\Documents\projects\ict2611\Lesson1-Variables\Lesson1-Variables\obj\Debug\net8.0\refint\Lesson1-Variables.dll
+C:\Users\thomasmuller\Documents\projects\ict2611\Lesson1-Variables\Lesson1-Variables\obj\Debug\net8.0\Lesson1-Variables.pdb
+C:\Users\thomasmuller\Documents\projects\ict2611\Lesson1-Variables\Lesson1-Variables\obj\Debug\net8.0\Lesson1-Variables.genruntimeconfig.cache
+C:\Users\thomasmuller\Documents\projects\ict2611\Lesson1-Variables\Lesson1-Variables\obj\Debug\net8.0\ref\Lesson1-Variables.dll
