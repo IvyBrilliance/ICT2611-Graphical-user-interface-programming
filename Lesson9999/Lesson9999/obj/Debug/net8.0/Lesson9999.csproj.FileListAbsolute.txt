@@ -1,0 +1,15 @@
+C:\Users\thomasmuller\Documents\projects\theeconomist\Lesson9999\Lesson9999\bin\Debug\net8.0\Lesson9999.exe
+C:\Users\thomasmuller\Documents\projects\theeconomist\Lesson9999\Lesson9999\bin\Debug\net8.0\Lesson9999.deps.json
+C:\Users\thomasmuller\Documents\projects\theeconomist\Lesson9999\Lesson9999\bin\Debug\net8.0\Lesson9999.runtimeconfig.json
+C:\Users\thomasmuller\Documents\projects\theeconomist\Lesson9999\Lesson9999\bin\Debug\net8.0\Lesson9999.dll
+C:\Users\thomasmuller\Documents\projects\theeconomist\Lesson9999\Lesson9999\bin\Debug\net8.0\Lesson9999.pdb
+C:\Users\thomasmuller\Documents\projects\theeconomist\Lesson9999\Lesson9999\obj\Debug\net8.0\Lesson9999.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\thomasmuller\Documents\projects\theeconomist\Lesson9999\Lesson9999\obj\Debug\net8.0\Lesson9999.AssemblyInfoInputs.cache
+C:\Users\thomasmuller\Documents\projects\theeconomist\Lesson9999\Lesson9999\obj\Debug\net8.0\Lesson9999.AssemblyInfo.cs
+C:\Users\thomasmuller\Documents\projects\theeconomist\Lesson9999\Lesson9999\obj\Debug\net8.0\Lesson9999.csproj.CoreCompileInputs.cache
+C:\Users\thomasmuller\Documents\projects\theeconomist\Lesson9999\Lesson9999\obj\Debug\net8.0\Lesson9999.sourcelink.json
+C:\Users\thomasmuller\Documents\projects\theeconomist\Lesson9999\Lesson9999\obj\Debug\net8.0\Lesson9999.dll
+C:\Users\thomasmuller\Documents\projects\theeconomist\Lesson9999\Lesson9999\obj\Debug\net8.0\refint\Lesson9999.dll
+C:\Users\thomasmuller\Documents\projects\theeconomist\Lesson9999\Lesson9999\obj\Debug\net8.0\Lesson9999.pdb
+C:\Users\thomasmuller\Documents\projects\theeconomist\Lesson9999\Lesson9999\obj\Debug\net8.0\Lesson9999.genruntimeconfig.cache
+C:\Users\thomasmuller\Documents\projects\theeconomist\Lesson9999\Lesson9999\obj\Debug\net8.0\ref\Lesson9999.dll
