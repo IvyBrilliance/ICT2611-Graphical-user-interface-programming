@@ -1,0 +1,15 @@
+C:\Users\thomasmuller\Documents\projects\ict2611\Lesson4-Arrays\Lesson4-Arrays\obj\Debug\net8.0\Lesson4-Arrays.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\thomasmuller\Documents\projects\ict2611\Lesson4-Arrays\Lesson4-Arrays\obj\Debug\net8.0\Lesson4-Arrays.AssemblyInfoInputs.cache
+C:\Users\thomasmuller\Documents\projects\ict2611\Lesson4-Arrays\Lesson4-Arrays\obj\Debug\net8.0\Lesson4-Arrays.AssemblyInfo.cs
+C:\Users\thomasmuller\Documents\projects\ict2611\Lesson4-Arrays\Lesson4-Arrays\obj\Debug\net8.0\Lesson4-Arrays.csproj.CoreCompileInputs.cache
+C:\Users\thomasmuller\Documents\projects\ict2611\Lesson4-Arrays\Lesson4-Arrays\obj\Debug\net8.0\Lesson4-Arrays.sourcelink.json
+C:\Users\thomasmuller\Documents\projects\ict2611\Lesson4-Arrays\Lesson4-Arrays\bin\Debug\net8.0\Lesson4-Arrays.exe
+C:\Users\thomasmuller\Documents\projects\ict2611\Lesson4-Arrays\Lesson4-Arrays\bin\Debug\net8.0\Lesson4-Arrays.deps.json
+C:\Users\thomasmuller\Documents\projects\ict2611\Lesson4-Arrays\Lesson4-Arrays\bin\Debug\net8.0\Lesson4-Arrays.runtimeconfig.json
+C:\Users\thomasmuller\Documents\projects\ict2611\Lesson4-Arrays\Lesson4-Arrays\bin\Debug\net8.0\Lesson4-Arrays.dll
+C:\Users\thomasmuller\Documents\projects\ict2611\Lesson4-Arrays\Lesson4-Arrays\bin\Debug\net8.0\Lesson4-Arrays.pdb
+C:\Users\thomasmuller\Documents\projects\ict2611\Lesson4-Arrays\Lesson4-Arrays\obj\Debug\net8.0\Lesson4-Arrays.dll
+C:\Users\thomasmuller\Documents\projects\ict2611\Lesson4-Arrays\Lesson4-Arrays\obj\Debug\net8.0\refint\Lesson4-Arrays.dll
+C:\Users\thomasmuller\Documents\projects\ict2611\Lesson4-Arrays\Lesson4-Arrays\obj\Debug\net8.0\Lesson4-Arrays.pdb
+C:\Users\thomasmuller\Documents\projects\ict2611\Lesson4-Arrays\Lesson4-Arrays\obj\Debug\net8.0\Lesson4-Arrays.genruntimeconfig.cache
+C:\Users\thomasmuller\Documents\projects\ict2611\Lesson4-Arrays\Lesson4-Arrays\obj\Debug\net8.0\ref\Lesson4-Arrays.dll

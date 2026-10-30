@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\thomasmuller\\Documents\\projects\\ict2611\\Lesson4-Arrays\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{8C92403C-C985-443B-B23E-03A8DE08DF84}|Lesson4-Arrays\\Lesson4-Arrays.csproj|c:\\users\\thomasmuller\\documents\\projects\\ict2611\\lesson4-arrays\\lesson4-arrays\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8C92403C-C985-443B-B23E-03A8DE08DF84}|Lesson4-Arrays\\Lesson4-Arrays.csproj|solutionrelative:lesson4-arrays\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\thomasmuller\\Documents\\projects\\ict2611\\Lesson4-Arrays\\Lesson4-Arrays\\Program.cs",
+              "RelativeDocumentMoniker": "Lesson4-Arrays\\Program.cs",
+              "ToolTip": "C:\\Users\\thomasmuller\\Documents\\projects\\ict2611\\Lesson4-Arrays\\Lesson4-Arrays\\Program.cs",
+              "RelativeToolTip": "Lesson4-Arrays\\Program.cs",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAAABYAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-29T13:40:12.622Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

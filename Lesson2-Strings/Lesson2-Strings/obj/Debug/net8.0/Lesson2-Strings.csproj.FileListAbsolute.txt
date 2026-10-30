@@ -1,0 +1,15 @@
+C:\Users\thomasmuller\Documents\projects\ict2611\Lesson2-Strings\Lesson2-Strings\bin\Debug\net8.0\Lesson2-Strings.exe
+C:\Users\thomasmuller\Documents\projects\ict2611\Lesson2-Strings\Lesson2-Strings\bin\Debug\net8.0\Lesson2-Strings.deps.json
+C:\Users\thomasmuller\Documents\projects\ict2611\Lesson2-Strings\Lesson2-Strings\bin\Debug\net8.0\Lesson2-Strings.runtimeconfig.json
+C:\Users\thomasmuller\Documents\projects\ict2611\Lesson2-Strings\Lesson2-Strings\bin\Debug\net8.0\Lesson2-Strings.dll
+C:\Users\thomasmuller\Documents\projects\ict2611\Lesson2-Strings\Lesson2-Strings\bin\Debug\net8.0\Lesson2-Strings.pdb
+C:\Users\thomasmuller\Documents\projects\ict2611\Lesson2-Strings\Lesson2-Strings\obj\Debug\net8.0\Lesson2-Strings.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\thomasmuller\Documents\projects\ict2611\Lesson2-Strings\Lesson2-Strings\obj\Debug\net8.0\Lesson2-Strings.AssemblyInfoInputs.cache
+C:\Users\thomasmuller\Documents\projects\ict2611\Lesson2-Strings\Lesson2-Strings\obj\Debug\net8.0\Lesson2-Strings.AssemblyInfo.cs
+C:\Users\thomasmuller\Documents\projects\ict2611\Lesson2-Strings\Lesson2-Strings\obj\Debug\net8.0\Lesson2-Strings.csproj.CoreCompileInputs.cache
+C:\Users\thomasmuller\Documents\projects\ict2611\Lesson2-Strings\Lesson2-Strings\obj\Debug\net8.0\Lesson2-Strings.sourcelink.json
+C:\Users\thomasmuller\Documents\projects\ict2611\Lesson2-Strings\Lesson2-Strings\obj\Debug\net8.0\Lesson2-Strings.dll
+C:\Users\thomasmuller\Documents\projects\ict2611\Lesson2-Strings\Lesson2-Strings\obj\Debug\net8.0\refint\Lesson2-Strings.dll
+C:\Users\thomasmuller\Documents\projects\ict2611\Lesson2-Strings\Lesson2-Strings\obj\Debug\net8.0\Lesson2-Strings.pdb
+C:\Users\thomasmuller\Documents\projects\ict2611\Lesson2-Strings\Lesson2-Strings\obj\Debug\net8.0\Lesson2-Strings.genruntimeconfig.cache
+C:\Users\thomasmuller\Documents\projects\ict2611\Lesson2-Strings\Lesson2-Strings\obj\Debug\net8.0\ref\Lesson2-Strings.dll

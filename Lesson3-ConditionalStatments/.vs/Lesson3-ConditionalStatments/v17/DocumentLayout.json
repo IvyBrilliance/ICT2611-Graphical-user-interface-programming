@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\thomasmuller\\Documents\\projects\\ict2611\\Lesson3-ConditionalStatments\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{3F6891F1-EB09-4881-B6FF-D89B6B4651D7}|Lesson3-ConditionalStatments\\Lesson3-ConditionalStatments.csproj|c:\\users\\thomasmuller\\documents\\projects\\ict2611\\lesson3-conditionalstatments\\lesson3-conditionalstatments\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3F6891F1-EB09-4881-B6FF-D89B6B4651D7}|Lesson3-ConditionalStatments\\Lesson3-ConditionalStatments.csproj|solutionrelative:lesson3-conditionalstatments\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\thomasmuller\\Documents\\projects\\ict2611\\Lesson3-ConditionalStatments\\Lesson3-ConditionalStatments\\Program.cs",
+              "RelativeDocumentMoniker": "Lesson3-ConditionalStatments\\Program.cs",
+              "ToolTip": "C:\\Users\\thomasmuller\\Documents\\projects\\ict2611\\Lesson3-ConditionalStatments\\Lesson3-ConditionalStatments\\Program.cs",
+              "RelativeToolTip": "Lesson3-ConditionalStatments\\Program.cs",
+              "ViewState": "AQIAAC0AAAAAAAAAAAAAADIAAAAVAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-29T13:04:11.275Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

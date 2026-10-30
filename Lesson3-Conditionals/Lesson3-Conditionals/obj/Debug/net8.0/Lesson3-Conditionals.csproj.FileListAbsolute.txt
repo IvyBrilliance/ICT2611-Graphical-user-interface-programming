@@ -1,0 +1,5 @@
+C:\Users\thomasmuller\Documents\projects\ict2611\Lesson3-Conditionals\Lesson3-Conditionals\obj\Debug\net8.0\Lesson3-Conditionals.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\thomasmuller\Documents\projects\ict2611\Lesson3-Conditionals\Lesson3-Conditionals\obj\Debug\net8.0\Lesson3-Conditionals.AssemblyInfoInputs.cache
+C:\Users\thomasmuller\Documents\projects\ict2611\Lesson3-Conditionals\Lesson3-Conditionals\obj\Debug\net8.0\Lesson3-Conditionals.AssemblyInfo.cs
+C:\Users\thomasmuller\Documents\projects\ict2611\Lesson3-Conditionals\Lesson3-Conditionals\obj\Debug\net8.0\Lesson3-Conditionals.csproj.CoreCompileInputs.cache
+C:\Users\thomasmuller\Documents\projects\ict2611\Lesson3-Conditionals\Lesson3-Conditionals\obj\Debug\net8.0\Lesson3-Conditionals.sourcelink.json

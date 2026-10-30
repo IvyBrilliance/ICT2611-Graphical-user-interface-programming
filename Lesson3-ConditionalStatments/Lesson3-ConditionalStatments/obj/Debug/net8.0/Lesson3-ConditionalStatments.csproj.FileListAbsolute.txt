@@ -1,0 +1,15 @@
+C:\Users\thomasmuller\Documents\projects\ict2611\Lesson3-ConditionalStatments\Lesson3-ConditionalStatments\bin\Debug\net8.0\Lesson3-ConditionalStatments.exe
+C:\Users\thomasmuller\Documents\projects\ict2611\Lesson3-ConditionalStatments\Lesson3-ConditionalStatments\bin\Debug\net8.0\Lesson3-ConditionalStatments.deps.json
+C:\Users\thomasmuller\Documents\projects\ict2611\Lesson3-ConditionalStatments\Lesson3-ConditionalStatments\bin\Debug\net8.0\Lesson3-ConditionalStatments.runtimeconfig.json
+C:\Users\thomasmuller\Documents\projects\ict2611\Lesson3-ConditionalStatments\Lesson3-ConditionalStatments\bin\Debug\net8.0\Lesson3-ConditionalStatments.dll
+C:\Users\thomasmuller\Documents\projects\ict2611\Lesson3-ConditionalStatments\Lesson3-ConditionalStatments\bin\Debug\net8.0\Lesson3-ConditionalStatments.pdb
+C:\Users\thomasmuller\Documents\projects\ict2611\Lesson3-ConditionalStatments\Lesson3-ConditionalStatments\obj\Debug\net8.0\Lesson3-ConditionalStatments.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\thomasmuller\Documents\projects\ict2611\Lesson3-ConditionalStatments\Lesson3-ConditionalStatments\obj\Debug\net8.0\Lesson3-ConditionalStatments.AssemblyInfoInputs.cache
+C:\Users\thomasmuller\Documents\projects\ict2611\Lesson3-ConditionalStatments\Lesson3-ConditionalStatments\obj\Debug\net8.0\Lesson3-ConditionalStatments.AssemblyInfo.cs
+C:\Users\thomasmuller\Documents\projects\ict2611\Lesson3-ConditionalStatments\Lesson3-ConditionalStatments\obj\Debug\net8.0\Lesson3-ConditionalStatments.csproj.CoreCompileInputs.cache
+C:\Users\thomasmuller\Documents\projects\ict2611\Lesson3-ConditionalStatments\Lesson3-ConditionalStatments\obj\Debug\net8.0\Lesson3-ConditionalStatments.sourcelink.json
+C:\Users\thomasmuller\Documents\projects\ict2611\Lesson3-ConditionalStatments\Lesson3-ConditionalStatments\obj\Debug\net8.0\Lesson3-ConditionalStatments.dll
+C:\Users\thomasmuller\Documents\projects\ict2611\Lesson3-ConditionalStatments\Lesson3-ConditionalStatments\obj\Debug\net8.0\refint\Lesson3-ConditionalStatments.dll
+C:\Users\thomasmuller\Documents\projects\ict2611\Lesson3-ConditionalStatments\Lesson3-ConditionalStatments\obj\Debug\net8.0\Lesson3-ConditionalStatments.pdb
+C:\Users\thomasmuller\Documents\projects\ict2611\Lesson3-ConditionalStatments\Lesson3-ConditionalStatments\obj\Debug\net8.0\Lesson3-ConditionalStatments.genruntimeconfig.cache
+C:\Users\thomasmuller\Documents\projects\ict2611\Lesson3-ConditionalStatments\Lesson3-ConditionalStatments\obj\Debug\net8.0\ref\Lesson3-ConditionalStatments.dll

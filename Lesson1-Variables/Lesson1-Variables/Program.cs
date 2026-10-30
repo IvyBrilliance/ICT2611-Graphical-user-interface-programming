@@ -52,7 +52,8 @@ decimal calculateTotalFees(decimal fee, int months)
 }
 total = calculateTotalFees(fee, months);
 
-Console.WriteLine($"Your name is : {name}, your fee is {fee}, and the number of months are {months}, and int total we get : {total} ");
+Console.WriteLine($"Your name is : {name}, your fee is {fee}, and the number of months" +
+    $" are {months}, and int total we get : {total} ");
 
 
 
