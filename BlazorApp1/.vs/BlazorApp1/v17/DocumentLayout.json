@@ -7,8 +7,16 @@
       "RelativeMoniker": "D:0:0:{D931BE68-28DD-46F0-8486-20660D7279D3}|BlazorApp1\\BlazorApp1.csproj|solutionrelative:blazorapp1\\components\\pages\\tasks.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{D931BE68-28DD-46F0-8486-20660D7279D3}|BlazorApp1\\BlazorApp1.csproj|c:\\users\\thomasmuller\\documents\\projects\\ict2611\\blazorapp1\\blazorapp1\\models\\taskitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D931BE68-28DD-46F0-8486-20660D7279D3}|BlazorApp1\\BlazorApp1.csproj|solutionrelative:blazorapp1\\models\\taskitem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{D931BE68-28DD-46F0-8486-20660D7279D3}|BlazorApp1\\BlazorApp1.csproj|c:\\users\\thomasmuller\\documents\\projects\\ict2611\\blazorapp1\\blazorapp1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{D931BE68-28DD-46F0-8486-20660D7279D3}|BlazorApp1\\BlazorApp1.csproj|solutionrelative:blazorapp1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D931BE68-28DD-46F0-8486-20660D7279D3}|BlazorApp1\\BlazorApp1.csproj|c:\\users\\thomasmuller\\documents\\projects\\ict2611\\blazorapp1\\blazorapp1\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D931BE68-28DD-46F0-8486-20660D7279D3}|BlazorApp1\\BlazorApp1.csproj|solutionrelative:blazorapp1\\data\\appdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,8 +26,34 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "TaskItem.cs",
+              "DocumentMoniker": "C:\\Users\\thomasmuller\\Documents\\projects\\ict2611\\BlazorApp1\\BlazorApp1\\Models\\TaskItem.cs",
+              "RelativeDocumentMoniker": "BlazorApp1\\Models\\TaskItem.cs",
+              "ToolTip": "C:\\Users\\thomasmuller\\Documents\\projects\\ict2611\\BlazorApp1\\BlazorApp1\\Models\\TaskItem.cs",
+              "RelativeToolTip": "BlazorApp1\\Models\\TaskItem.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAUAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-31T09:05:50.282Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AppDbContext.cs",
+              "DocumentMoniker": "C:\\Users\\thomasmuller\\Documents\\projects\\ict2611\\BlazorApp1\\BlazorApp1\\Data\\AppDbContext.cs",
+              "RelativeDocumentMoniker": "BlazorApp1\\Data\\AppDbContext.cs",
+              "ToolTip": "C:\\Users\\thomasmuller\\Documents\\projects\\ict2611\\BlazorApp1\\BlazorApp1\\Data\\AppDbContext.cs",
+              "RelativeToolTip": "BlazorApp1\\Data\\AppDbContext.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAlAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-31T08:59:53.838Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -28,20 +62,20 @@
               "RelativeDocumentMoniker": "BlazorApp1\\Components\\Pages\\Tasks.razor",
               "ToolTip": "C:\\Users\\thomasmuller\\Documents\\projects\\ict2611\\BlazorApp1\\BlazorApp1\\Components\\Pages\\Tasks.razor",
               "RelativeToolTip": "BlazorApp1\\Components\\Pages\\Tasks.razor",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAAAAAA",
+              "ViewState": "AQIAAEgAAAAAAAAAAAAAwF4AAAAUAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2026-10-30T21:37:36.857Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\thomasmuller\\Documents\\projects\\ict2611\\BlazorApp1\\BlazorApp1\\Program.cs",
               "RelativeDocumentMoniker": "BlazorApp1\\Program.cs",
               "ToolTip": "C:\\Users\\thomasmuller\\Documents\\projects\\ict2611\\BlazorApp1\\BlazorApp1\\Program.cs",
               "RelativeToolTip": "BlazorApp1\\Program.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAcAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACgAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-10-30T21:09:06.153Z",
               "EditorCaption": ""

@@ -1,5 +1,116 @@
-﻿<h3>Tasks</h3>
+﻿@page "/tasks"
+@rendermode InteractiveServer
+
+@using Microsoft.EntityFrameworkCore
+@using BlazorApp1.Models
+@using BlazorApp1.Data
+
+@inject IDbContextFactory<AppDbContext> DbFactory
+
+<PageTitle>Task Tracker</PageTitle>
+
+
+<h1>Task Tracker</h1>
+
+<div class="mb-4">
+	<input class="form-control" placeholder="Enter a new task" @bind="newTaskTitle" /> 
+	<button class="btn btn-primary mt-2" @onclick="AddTask">Add Task</button>
+</div>
+
+<h3>Tasks</h3>
+
+@if(tasks.Count == 0)
+{
+	<p>No taks yet!</p>
+}
+else
+{
+	@foreach(var task in tasks)
+	{
+		<div class="d-flex align-items-center gap-3 mb-2" @key="task.Id">
+			<input type="checkbox" checked="@task.IsCompleted" @onchange="()=> ToggleTask(task)" />
+
+			<span style="text-decoration: @(task.IsCompleted ? "line-through" : "none" )" >
+				@task.Title
+			</span>
+
+			<button class="btn btn-danger btn-sm" @onclick="()=>DeleteTask(task.Id)">Delete</button>
+		</div>
+	}
+}
 
 @code {
+	// simmilar to state in React
+	private List<TaskItem> tasks = new();
 
+	private string newTaskTitle = "";
+	protected override async Task OnInitializedAsync()
+	{
+		await LoadTasks();
+	}
+
+	// get the data from the database:
+	private async Task LoadTasks()
+	{
+		await using var db = await DbFactory.CreateDbContextAsync();
+		tasks = await db.Tasks
+		.AsNoTracking()
+		.OrderByDescending(t => t.Id)
+		.ToListAsync();
+	}
+
+	// Function to add a task:
+	private async Task AddTask()
+	{
+		// Ensure user entered text:
+		if (string.IsNullOrWhiteSpace(newTaskTitle))
+		{
+			return;
+		}
+
+		await using var db = await DbFactory.CreateDbContextAsync();
+		db.Tasks.Add(new TaskItem
+			{
+				Title = newTaskTitle.Trim(),
+				IsCompleted = false
+			});
+		await db.SaveChangesAsync();
+		newTaskTitle = "";
+		await LoadTasks();
+	}
+
+	// Function to toggle a task:
+	private async Task ToggleTask(TaskItem task)
+	{
+		await using var db = await DbFactory.CreateDbContextAsync(); // connection
+		var existingTask = await db.Tasks.FindAsync(task.Id); // collect the task via the task.Id
+		if (existingTask is null)
+		{
+			return;
+		}
+		// if it exists:
+		existingTask.IsCompleted = !existingTask.IsCompleted;
+
+		await db.SaveChangesAsync();
+		await LoadTasks();
+	}
+
+	// Function to delete a task:
+	private async Task DeleteTask(int id)
+	{
+		await using var db = await DbFactory.CreateDbContextAsync(); // connection
+		var task = await db.Tasks.FindAsync(id);
+		if(task == null)
+		{
+			Console.WriteLine($"Task {id} was not found.");
+			return;
+		}
+
+		db.Tasks.Remove(task);
+		await db.SaveChangesAsync();
+
+		// update theforntend list:
+		tasks.RemoveAll(t=> t.Id == id);
+
+	}
 }
